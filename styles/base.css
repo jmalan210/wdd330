@@ -13,6 +13,8 @@
     font-family: var(--body-font);
     box-sizing: border-box;
     color: var(--navy);
+    max-width: 900px;
+    margin: 0 auto;
    
 }
 
@@ -28,6 +30,11 @@
     text-align: center;
     justify-content: center;
     padding-top: 20px;
+    
+    & div {
+        padding: 0;
+        margin: 0;
+    }
 }
 
 h1 {
@@ -50,6 +57,30 @@ h2 {
     text-align: right;
     margin: 0;
     padding: 0;
+}
+
+/* Navigation */
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+    background-color: #8fafc180;
+
+    & li {
+        padding: 10px;
+        list-style: none;
+
+        & a {
+            text-decoration: none;
+            font-weight: bold;
+
+        }
+        
+    }
+
+
 }
 
 /* Footer */
