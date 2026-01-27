@@ -4,6 +4,7 @@
     --navy: #334155;
     --light-blue: #8fafc1;
     --peach: #e6b8a2;
+    --orange: #e4662c;
     --slate: #6b7280;
 
 }
@@ -15,6 +16,44 @@
    
 }
 
- h1, h2, h3, h4, h5, h6 {
+ h2, h3, h4, h5, h6 {
         font-family: var(--heading-font);
     }
+
+/* header */
+
+.header {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+h1 {
+    font-family: var(--body-font);
+    color: var(--light-blue);
+    font-size: 4rem;
+    padding: 0;
+    margin: 0;
+    font-weight: bolder;
+
+
+}
+#orange {
+    color: var(--orange);
+    
+}
+
+h2 {
+    font-style: oblique;
+    text-align: right;
+    margin: 0;
+    padding: 0;
+}
+
+/* Footer */
+
+.footer {
+    text-align: center;
+}
