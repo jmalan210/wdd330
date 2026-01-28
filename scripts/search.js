@@ -36,7 +36,7 @@ form.addEventListener("submit", async (e) => {
 
     
     
-    const birdList = new BirdList(birdDataSource, document.querySelector("#bird-list"), locationInput);
+    const birdList = new BirdList(birdDataSource, document.querySelector("#bird-list"), locationInput, selectedRadioButton);
     await birdList.init(lat, lon);
   
 });

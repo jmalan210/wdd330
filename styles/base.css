@@ -143,8 +143,9 @@ h2 {
 }
 
 .bird-li {
-    display: flex;
-    flex: row;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: baseline;
     list-style-type: none;
     padding: 10px;
     margin: 10px;
@@ -154,6 +155,10 @@ h2 {
     & h4 {
         font-size: 1.5rem;
         text-align: center;
+        grid-column: 1/3;
+    }
+
+   
     }
 
 }

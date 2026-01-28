@@ -28,8 +28,8 @@ export default class BirdList {
     async init(lat, lon) {
         this.birds = await this.dataSource(lat, lon);
         const title = document.getElementById("list-title");
-        const titles = { recent: "Recent sightings", "recent-notable": "Recent Notable Sightings" };
-        title.textContent = `${titles[this.dataType]} ${this.location}`;
+        const titles = { recent: "Recent Sightings", "recent-notable": "Recent Notable Sightings" };
+        title.textContent = `${titles[this.dataType]} in ${this.location}`;
         this.render();
     }
     render() {
