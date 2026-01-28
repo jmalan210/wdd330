@@ -12,7 +12,7 @@ function birdListTemplate(bird) {
         <p><strong>Number spotted:</strong> ${bird.howMany ?? "unknown"}</p>
         <a href = "https://ebird.org/species/${bird.speciesCode}" target="blank">Learn More about ${bird.comName}</a>
         </div>
-        <div><button>I've seen this bird</button></div>
+        <button id="seen-bird">I've seen this bird</button>
     </li>
         `;
 }
@@ -29,7 +29,7 @@ export default class BirdList {
         this.birds = await this.dataSource(lat, lon);
         const title = document.getElementById("list-title");
         const titles = { recent: "Recent Sightings", "recent-notable": "Recent Notable Sightings" };
-        title.textContent = `${titles[this.dataType]} in ${this.location}`;
+        title.textContent = `${titles[this.dataType]} for ${this.location}`;
         this.render();
     }
     render() {
