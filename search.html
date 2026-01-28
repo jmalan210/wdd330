@@ -12,6 +12,7 @@
     <script src="scripts/search.js" type="module"></script>
 </head>
 <body>
+    <div class="page-wrapper">
     <header id="dynamic-header"> 
    
     </header>
@@ -21,6 +22,20 @@
         
         <label for="location">Enter location:</label>
         <input type="text" name="location" id="location" placeholder="City, State or Country" required>
+        <label>
+            <input type="radio" name="dataType" value="recent" checked />
+            Recent Sightings 
+        </label>
+        <label>
+            <input type="radio" name=" dataType" value="recent-notable"/>
+            Recent Notable Sightings 
+        </label>
+        <label>
+            <input type="radio" name="dataType" value="species-list">
+            Species List for Region
+        </label>
+
+
         <button type = "submit">Find Birds</button>
     </form>
     <h3 id="list-title"></h3>
@@ -32,5 +47,6 @@
     <footer id="dynamic-footer">
         
     </footer>
+    </div>
 </body>
 </html>

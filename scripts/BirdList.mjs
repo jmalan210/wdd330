@@ -6,11 +6,13 @@ function birdListTemplate(bird) {
     <li class= "bird-li">
         
         <h4>${bird.comName}</h4>
-        <p><strong>Scientific name:</strong> <em>${bird.sciName}</em></p>
+        <div><p><strong>Scientific name:</strong> <em>${bird.sciName}</em></p>
         <p><strong>Date observed:</strong> ${formatDate(bird.obsDt)}</p>
         <p><strong>Location seen:</strong> ${bird.locName}</p>
         <p><strong>Number spotted:</strong> ${bird.howMany ?? "unknown"}</p>
         <a href = "https://ebird.org/species/${bird.speciesCode}" target="blank">Learn More about ${bird.comName}</a>
+        </div>
+        <div><button>I've seen this bird</button></div>
     </li>
         `;
 }
