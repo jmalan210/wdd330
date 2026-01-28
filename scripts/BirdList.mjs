@@ -18,16 +18,18 @@ function birdListTemplate(bird) {
 }
 
 export default class BirdList {
-    constructor(dataSource, listElement, location) {
+    constructor(dataSource, listElement, location, dataType) {
         this.location = location;
         this.dataSource = dataSource;
-        this.listElement = listElement
+        this.listElement = listElement;
+        this.dataType = dataType;
     }
 
     async init(lat, lon) {
         this.birds = await this.dataSource(lat, lon);
-        const title = document.getElementById('list-title');
-        title.textContent = `Birds seen near ${this.location} in the last 30 days:`;
+        const title = document.getElementById("list-title");
+        const titles = { recent: "Recent sightings", "recent-notable": "Recent Notable Sightings" };
+        title.textContent = `${titles[this.dataType]} ${this.location}`;
         this.render();
     }
     render() {

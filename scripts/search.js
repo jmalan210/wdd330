@@ -16,8 +16,28 @@ form.addEventListener("submit", async (e) => {
         console.error("Location not found");
         return;
     }
-    const birdList = new BirdList(getBirdData, document.querySelector("#bird-list"), locationInput);
-    await birdList.init(coordinates.lat, coordinates.lon);
+
+    const { lat, lon } = coordinates;
+
+    const selectedRadioButton = document.querySelector('input[name="dataType"]:checked').value;
+    
+    const birdDataSource = (lat, lon) => {
+        switch (selectedRadioButton) {
+        case 'recent':
+            return getBirdData(`https://api.ebird.org/v2/data/obs/geo/recent?lat=${lat}&lng=${lon}&back=7&maxResults=10`);
+            
+        case 'recent-notable':
+           return getBirdData(`https://api.ebird.org/v2/data/obs/geo/recent/notable?lat=${lat}&lng=${lon}&back=7&maxResults=10`);
+           
+        
+    }
+
+    }
+
+    
+    
+    const birdList = new BirdList(birdDataSource, document.querySelector("#bird-list"), locationInput);
+    await birdList.init(lat, lon);
   
 });
 

@@ -23,19 +23,14 @@
         <label for="location">Enter location:</label>
         <input type="text" name="location" id="location" placeholder="City, State or Country" required>
         <label>
-            <input type="radio" name="dataType" value="recent" checked />
+            <input type="radio" name="dataType" value="recent" id="recent" checked />
             Recent Sightings 
         </label>
         <label>
-            <input type="radio" name=" dataType" value="recent-notable"/>
+            <input type="radio" name="dataType" value="recent-notable" id="recent-notable"/>
             Recent Notable Sightings 
         </label>
-        <label>
-            <input type="radio" name="dataType" value="species-list">
-            Species List for Region
-        </label>
-
-
+        
         <button type = "submit">Find Birds</button>
     </form>
     <h3 id="list-title"></h3>

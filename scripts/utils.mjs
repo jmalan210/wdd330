@@ -45,12 +45,16 @@ export async function getCoordinates(location) {
     
 };
 
-export async function getBirdData(lat, lon) {
-    const response = await fetch(`https://api.ebird.org/v2/data/obs/geo/recent?lat=${lat}&lng=${lon}`, {
+export async function getBirdData(url) {
+    const response = await fetch(url, {
         headers: { "X-eBirdApiToken": EBIRD_API_KEY }
     
         
-    })
+    });
+    if (!response.ok) {
+        throw new Error (`eBird API error: ${response.status}`);
+        
+    }
     const birds = await response.json();
     console.log(birds)
     return birds
