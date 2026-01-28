@@ -1,3 +1,5 @@
+import {LOCATIONIQ_API_KEY, EBIRD_API_KEY} from "./config.mjs"
+
 export function renderWithTemplate(template, parentElement, data, callback) {
   parentElement.innerHTML = template;
   if (callback) {
@@ -25,3 +27,35 @@ export async function loadHeaderFooter(){
     year.textContent = new Date().getFullYear();
 
 }
+
+export async function getCoordinates(location) {
+    const response = await fetch(`https://us1.locationiq.com/v1/search?key=${LOCATIONIQ_API_KEY}&q=${encodeURIComponent(location)}&format=json&`);
+    const data = await response.json();
+
+    if (data.length === 0) {
+        return null;
+    }
+
+    const lat = data[0].lat;
+    const lon = data[0].lon;
+    // console.log(lat);
+    // console.log(lon);
+    return { lat, lon }
+    
+    
+};
+
+export async function getBirdData(lat, lon) {
+    const response = await fetch(`https://api.ebird.org/v2/data/obs/geo/recent?lat=${lat}&lng=${lon}`, {
+        headers: { "X-eBirdApiToken": EBIRD_API_KEY }
+    
+        
+    })
+    const birds = await response.json();
+    console.log(birds)
+    return birds
+};
+    
+
+
+

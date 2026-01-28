@@ -9,12 +9,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/base.css">
-    <script src="scripts/main.js" type="module"></script>
+    <script src="scripts/search.js" type="module"></script>
 </head>
 <body>
     <header id="dynamic-header"> 
    
     </header>
+<main>
+    <form id="loc-form">
+        <legend>Please enter your location</legend>
+        <label for="location">Enter location:</label>
+        <input type="text" name="location" id="location" placeholder="City, State or Country" required>
+        <button type = "submit">Find Birds</button>
+    </form>
+
+    <div id="bird-list">
+        <ul></ul>
+    </div>
+</main>
+
     <footer id="dynamic-footer">
         
     </footer>
