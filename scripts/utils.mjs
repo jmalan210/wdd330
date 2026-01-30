@@ -1,4 +1,4 @@
-import {LOCATIONIQ_API_KEY, EBIRD_API_KEY} from "./config.mjs"
+import {LOCATIONIQ_API_KEY, EBIRD_API_KEY} from "/config.mjs"
 
 export function renderWithTemplate(template, parentElement, data, callback) {
   parentElement.innerHTML = template;
