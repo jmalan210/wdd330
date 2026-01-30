@@ -66,5 +66,27 @@ export function formatDate(dateString) {
     return new Intl.DateTimeFormat("en-US", { year: "numeric", month: "long", day: "numeric"}).format(new Date(dateString));
 }
 
+export async function getWikiBirdData(bird) {
+    const namesToTry = [bird.comName, bird.sciName];
+    for (let name of namesToTry) {
+        if (!name) continue;
+   
+        const url = `https://en.wikipedia.org/w/api.php?origin=*&action=query&format=json&prop=pageimages&redirects=1&titles=${encodeURIComponent(name)}&pithumbsize=800`;
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
 
+            const pages = data.query?.pages;
+            if (!pages) continue;
+            const page = Object.values(pages)[0];
+            const imgUrl = page?.thumbnail?.source;
+            if (imgUrl) return imgUrl;
+        
+        } catch (err) {
+            console.warn("Wikipedia fetch error:", name, err);
+        }
+    }
+
+    return "/images/placeholder.svg";
+}
 
