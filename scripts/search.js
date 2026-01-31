@@ -24,10 +24,10 @@ form.addEventListener("submit", async (e) => {
     const birdDataSource = (lat, lon) => {
         switch (selectedRadioButton) {
         case 'recent':
-            return getBirdData(`https://api.ebird.org/v2/data/obs/geo/recent?lat=${lat}&lng=${lon}&back=7&maxResults=10`);
+            return getBirdData(`https://api.ebird.org/v2/data/obs/geo/recent?lat=${lat}&lng=${lon}&back=7&maxResults=30`);
             
         case 'recent-notable':
-           return getBirdData(`https://api.ebird.org/v2/data/obs/geo/recent/notable?lat=${lat}&lng=${lon}&back=7&maxResults=10`);
+           return getBirdData(`https://api.ebird.org/v2/data/obs/geo/recent/notable?lat=${lat}&lng=${lon}&back=7&maxResults=30`);
            
         
     }

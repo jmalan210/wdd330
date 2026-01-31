@@ -10,10 +10,18 @@ export default class BirdList {
     }
 
     async init(lat, lon) {
-        this.birds = await this.dataSource(lat, lon);
+        let birds = await this.dataSource(lat, lon);
+        const speciesList = new Set();
+        birds = birds.filter(bird => {
+            if (speciesList.has(bird.speciesCode)) return false;
+            speciesList.add(bird.speciesCode);
+            return true;
+        });
+        birds = birds.slice(0, 10);
+        this.birds = birds;
         const title = document.getElementById("list-title");
         const titles = { recent: "Recent Sightings", "recent-notable": "Recent Notable Sightings" };
-        title.textContent = `${titles[this.dataType]} for ${this.location}`;
+        title.innerHTML = `${titles[this.dataType]} for <span id="title-loc">${this.location}</span>`;
         this.renderBirds(this.birds);
     }
     async renderBirds(birds) {
@@ -23,7 +31,7 @@ export default class BirdList {
                 `<li class="bird">
                 <img src="${imgUrl}" alt="${bird.comName}" width="150" />
                 <h4>${bird.comName}</h4>
-                <div><p><strong>Scientific name:</strong> <em>${bird.sciName}</em></p>
+                <div class="bird-info"><p><strong>Scientific name:</strong> <em>${bird.sciName}</em></p>
                 <p><strong>Date observed:</strong> ${formatDate(bird.obsDt)}</p>
                 <p><strong>Location seen:</strong> ${bird.locName}</p>
                 <p><strong>Number spotted:</strong> ${bird.howMany ?? "unknown"}</p>
