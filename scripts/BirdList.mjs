@@ -27,6 +27,8 @@ export default class BirdList {
     async renderBirds(birds) {
         const birdsHTML = await Promise.all(birds.map(async bird => {
             const imgUrl = await getWikiBirdData(bird);
+            console.log(imgUrl);
+            const privLoc = bird.locationPrivate ? "Yes" : "No";
             return (
                 `<li class="bird">
                 <img src="${imgUrl}" alt="${bird.comName}" width="150" />
@@ -34,8 +36,11 @@ export default class BirdList {
                 <div class="bird-info"><p><strong>Scientific name:</strong> <em>${bird.sciName}</em></p>
                 <p><strong>Date observed:</strong> ${formatDate(bird.obsDt)}</p>
                 <p><strong>Location seen:</strong> ${bird.locName}</p>
+                <p><strong>Latitude:</strong> ${bird.lat}</p>
+                <p><strong>Longitude:</strong> ${bird.lng}</p>
+                <p><strong>Private Location:</strong> ${privLoc}
                 <p><strong>Number spotted:</strong> ${bird.howMany ?? "unknown"}</p>
-                <a href = "https://ebird.org/species/${bird.speciesCode}" target="blank">Learn More about ${bird.comName}</a>
+                <p><a href = "https://ebird.org/species/${bird.speciesCode}" target="blank">Learn More about ${bird.comName}</a></p>
                 </div>
                 <button class="seen-bird">I've seen this bird</button>
 

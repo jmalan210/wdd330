@@ -182,7 +182,7 @@ h2 {
 }
 
 .bird a {
-   line-height: 3;
+   
    text-decoration: none;
    font-weight: bold;
    color: var(--orange)

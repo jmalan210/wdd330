@@ -62,7 +62,7 @@ export async function getBirdData(url) {
     
 export function formatDate(dateString) {
     if (!dateString) return "unknown";
-    const date = new Date(dateString);
+    // const date = new Date(dateString);
     return new Intl.DateTimeFormat("en-US", { year: "numeric", month: "long", day: "numeric"}).format(new Date(dateString));
 }
 
