@@ -90,3 +90,18 @@ export async function getWikiBirdData(bird) {
     return "/images/placeholder.svg";
 }
 
+export async function getBirdSuggestions(query) {
+    const url = `https://api.ebird.org/v2/ref/taxon/find?q=${query}&cat=species`;
+
+    const response = await fetch(url, {
+        headers: {
+            "X-eBirdApiToken": EBIRD_API_KEY
+        }
+        
+    })
+    const birdData = await response.json();
+    return birdData;
+
+    
+};
+

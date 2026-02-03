@@ -1,11 +1,13 @@
-import { loadHeaderFooter, getCoordinates, getBirdData } from "./utils.mjs";
+import { loadHeaderFooter, getCoordinates, getBirdData, getBirdSuggestions } from "./utils.mjs";
 import BirdList from "./BirdList.mjs";
+import { EBIRD_API_KEY } from "./config.mjs";
 
 loadHeaderFooter();
 
-const form = document.getElementById("loc-form");
+const locForm = document.getElementById("loc-form");
 
-form.addEventListener("submit", async (e) => {
+
+locForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const locationInput = document.getElementById("location").value;
     if (!location) {
@@ -33,11 +35,11 @@ form.addEventListener("submit", async (e) => {
     }
 
     }
-
     
     
     const birdList = new BirdList(birdDataSource, document.querySelector("#bird-list"), locationInput, selectedRadioButton);
     await birdList.init(lat, lon);
   
 });
+
 
