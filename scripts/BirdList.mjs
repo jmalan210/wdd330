@@ -13,7 +13,7 @@ export default class BirdList {
         let birds = await this.dataSource(lat, lon);
         const speciesList = new Set();
         birds = birds.filter(bird => {
-            if (speciesList.has(bird.speciesCode)) return false;
+            if (speciesList.has(bird.speciesCode)) return false; //handles duplicate entries
             speciesList.add(bird.speciesCode);
             return true;
         });
@@ -25,7 +25,7 @@ export default class BirdList {
         this.renderBirds(this.birds);
     }
     async renderBirds(birds) {
-        const birdsHTML = await Promise.all(birds.map(async bird => {
+            const birdsHTML = await Promise.all(birds.map(async bird => {
             const imgUrl = await getWikiBirdData(bird);
             console.log(imgUrl);
             const privLoc = bird.locationPrivate ? "Yes" : "No";
