@@ -1,6 +1,7 @@
-import { loadHeaderFooter, getCoordinates, getBirdData, getBirdSuggestions } from "./utils.mjs";
+import { loadHeaderFooter, getCoordinates, getBirdData, getWikiBirdData } from "./utils.mjs";
 import BirdList from "./BirdList.mjs";
-import { EBIRD_API_KEY } from "./config.mjs";
+import BirdSearch from "./BirdSearch.mjs";
+
 
 loadHeaderFooter();
 
@@ -25,21 +26,29 @@ locForm.addEventListener("submit", async (e) => {
     
     const birdDataSource = (lat, lon) => {
         switch (selectedRadioButton) {
-        case 'recent':
-            return getBirdData(`https://api.ebird.org/v2/data/obs/geo/recent?lat=${lat}&lng=${lon}&back=7&maxResults=30`);
+            case 'recent':
+                return getBirdData(`https://api.ebird.org/v2/data/obs/geo/recent?lat=${lat}&lng=${lon}&back=7&maxResults=30`);
             
-        case 'recent-notable':
-           return getBirdData(`https://api.ebird.org/v2/data/obs/geo/recent/notable?lat=${lat}&lng=${lon}&back=7&maxResults=30`);
-           
-        
+            case 'recent-notable':
+                return getBirdData(`https://api.ebird.org/v2/data/obs/geo/recent/notable?lat=${lat}&lng=${lon}&back=7&maxResults=30`);
+        }
     }
-
-    }
-    
-    
     const birdList = new BirdList(birdDataSource, document.querySelector("#bird-list"), locationInput, selectedRadioButton);
     await birdList.init(lat, lon);
   
+});
+
+const searchForm = document.getElementById("search-form");
+
+searchForm.addEventListener("submit", async (e) => {
+    e.preventDefault(); 
+    const searchInput = document.getElementById("bird-name").value;
+    
+    const birdSearch = new BirdSearch(getWikiBirdData, document.querySelector("#bird-list"), searchInput)
+    await birdSearch.init(searchInput);
+
+    const details = await birdSearch.init(searchInput);
+    console.log(details);
 });
 
 

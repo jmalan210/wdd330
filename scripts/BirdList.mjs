@@ -1,4 +1,4 @@
-import { formatDate, getWikiBirdData } from "./utils.mjs";
+import { formatDate, getWikiBirdPics } from "./utils.mjs";
 
 
 export default class BirdList {
@@ -26,7 +26,7 @@ export default class BirdList {
     }
     async renderBirds(birds) {
         const birdsHTML = await Promise.all(birds.map(async bird => {
-            const imgUrl = await getWikiBirdData(bird);
+            const imgUrl = await getWikiBirdPics(bird);
             console.log(imgUrl);
             const privLoc = bird.locationPrivate ? "Yes" : "No";
             return (

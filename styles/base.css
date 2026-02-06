@@ -141,6 +141,7 @@ h2 {
 #list-title {
     font-size: 3rem;
     text-align: center;
+    text-transform: capitalize;
 }
 
 #title-loc {

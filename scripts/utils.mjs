@@ -66,7 +66,7 @@ export function formatDate(dateString) {
     return new Intl.DateTimeFormat("en-US", { year: "numeric", month: "long", day: "numeric"}).format(new Date(dateString));
 }
 
-export async function getWikiBirdData(bird) {
+export async function getWikiBirdPics(bird) {
     const namesToTry = [bird.comName, bird.sciName];
     for (let name of namesToTry) {
         if (!name) continue;
@@ -90,18 +90,39 @@ export async function getWikiBirdData(bird) {
     return "/images/placeholder.svg";
 }
 
-export async function getBirdSuggestions(query) {
-    const url = `https://api.ebird.org/v2/ref/taxon/find?q=${query}&cat=species`;
-
-    const response = await fetch(url, {
-        headers: {
-            "X-eBirdApiToken": EBIRD_API_KEY
-        }
-        
-    })
-    const birdData = await response.json();
-    return birdData;
-
+export async function getWikiBirdData(query) {
+    const url = `https://en.wikipedia.org/w/api.php?` +
+        new URLSearchParams({
+            action: "query",
+            list: "search",
+            srsearch: query,
+            format: "json",
+            origin: "*"
+        });
+    
+    const res = await fetch(url);
+    const data = await res.json();
+    return data.query.search;
+   
     
 };
+
+export async function getWikiBirdDetails(pageId) {
+    const url = 'https://en.wikipedia.org/w/api.php?' +
+        new URLSearchParams({
+            action: "query",
+            pageids: pageId,
+            prop: "extracts|pageimages",
+            exintro: true,
+            explaintext: true,
+            piprop: "thumbnail",
+            pithumbsize: 400,
+            format: "json",
+            origin: "*"
+        });
+    const res = await fetch(url);
+    const data = await res.json();
+    return data.query.pages[pageId];
+   
+}
 
