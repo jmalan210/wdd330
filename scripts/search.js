@@ -10,7 +10,7 @@ const locForm = document.getElementById("loc-form");
 locForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const locationInput = document.getElementById("location").value;
-    if (!locationInput) {
+    if (!location) {
         return;
     }
     const coordinates = await getCoordinates(locationInput);
@@ -19,28 +19,26 @@ locForm.addEventListener("submit", async (e) => {
         return;
     }
 
-    const SERVER_URL = location.hostname === "localhost"
-        ? "http://localhost:3000"
-        : "https://server-4abf.onrender.com";
-    
-    const { lat, lon: lng } = coordinates;
+    const { lat, lon } = coordinates;
 
     const selectedRadioButton = document.querySelector('input[name="dataType"]:checked').value;
     
-    const birdDataSource = (lat, lng) => {
-        
+    const birdDataSource = (lat, lon) => {
         switch (selectedRadioButton) {
-            case 'recent':
-                
-            case 'recent-notable':
-                return getBirdData(`${SERVER_URL}/birds/${selectedRadioButton}?lat=${lat}&lng=${lng}`);
-        }
+        case 'recent':
+            return getBirdData(`https://api.ebird.org/v2/data/obs/geo/recent?lat=${lat}&lng=${lon}&back=7&maxResults=30`);
+            
+        case 'recent-notable':
+           return getBirdData(`https://api.ebird.org/v2/data/obs/geo/recent/notable?lat=${lat}&lng=${lon}&back=7&maxResults=30`);
+           
+        
+    }
 
     }
     
     
     const birdList = new BirdList(birdDataSource, document.querySelector("#bird-list"), locationInput, selectedRadioButton);
-    await birdList.init(lat, lng);
+    await birdList.init(lat, lon);
   
 });
 
