@@ -44,9 +44,8 @@ searchForm.addEventListener("submit", async (e) => {
     e.preventDefault(); 
     const searchInput = document.getElementById("bird-name").value;
     
-    const birdSearch = new BirdSearch(getWikiBirdData, document.querySelector("#bird-list"), searchInput)
-    await birdSearch.init(searchInput);
-
+    const birdSearch = new BirdSearch(getWikiBirdData, document.querySelector("#bird-list"));
+    
     const details = await birdSearch.init(searchInput);
     console.log(details);
 });

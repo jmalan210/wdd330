@@ -105,8 +105,12 @@ h2 {
 
 /*Search Page*/
 
+.forms {
+    display: flex;
+    justify-content: center;
+}
 
-#loc-form {
+form {
     justify-self: center;
     max-width: 300px; 
     border: 2px solid var(--navy);
@@ -116,20 +120,21 @@ h2 {
     
     }
 
-#loc-form label {
+form label {
     display: flex;
     justify-content: flex-start;
     text-align: left;
     margin: 10px;
 }
 
-#loc-form button, #seen-bird {
+form button, #seen-bird {
     background-color: var(--orange);
     color: white;
     border: none;
     width: 200px;
     display: inline-block;
     align-self: center;
+    justify-content: baseline;
     padding: 10px;
     border-radius: 20px;
     margin-top: 5px;
@@ -207,7 +212,29 @@ h2 {
     justify-self: center;
     margin: 10px;
    }
-    
+
+.searchedBird {
+    list-style-type: none;
+    border: 2px solid var(--navy);
+    margin-top: 10px;
+
+}
+
+.searchedBird h4 {
+    font-size: 2rem;
+    text-align: center;
+    background-color:var(--navy);
+    border-bottom: 5px solid var(--light-blue);
+    color: white;
+    margin: 0;
+
+}
+
+.searchedBird img {
+    float: left;
+    padding: 10px;
+}
+
 
 
 

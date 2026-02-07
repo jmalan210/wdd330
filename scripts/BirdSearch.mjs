@@ -15,23 +15,23 @@ export default class BirdSearch {
         const pageId = bird.pageid;
         const details = await getWikiBirdDetails(pageId);
         const title = document.getElementById("list-title");
-        title.innerHTML = `${bird.title}`
+        title.innerHTML = ``;
       
         const birdHTML = this.renderBird(details);
         this.listElement.innerHTML = birdHTML;
-        
+        return details;
        
     }
 
     renderBird(details) {
+        const sentences = details.extract?.match(/[^\.!\?]+[\.!\?]+/g) || [];
+        const firstFive = sentences.slice(0, 5).join(' ');
 
             return (
-                `<li class="bird">
-                        <img src="${details.thumbnail.source}" alt="${details.title}" width="150" />
+                `<li class="searchedBird">
                         <h4>${details.title}</h4>
-                        <div class="bird-info">
-                        <p>${details.extract}</p>
-                        </div>
+                        <img src="${details.thumbnail?.source || 'images/placeholder.svg'}" alt="${details.title}" width="300" />
+                        <p>${firstFive}</p>
                         <button class="seen-bird">I've seen this bird</button>
         
                         </li>`
