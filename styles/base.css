@@ -235,8 +235,27 @@ form button, #seen-bird {
     padding: 10px;
 }
 
+.hotspot {
+    list-style-type: none;
+    border: 2px solid var(--navy);
+    width: 500px;
+    margin: 10px;
+    
+}
 
+.hotspot h4 {
+    font-size: 2rem;
+    text-align: center;
+    background-color:var(--navy);
+    border-bottom: 5px solid var(--light-blue);
+    color: white;
+    margin: 0;
 
+}
+
+.hotspot-info {
+    padding: 10px;
+}
 
 /* Footer */
 
