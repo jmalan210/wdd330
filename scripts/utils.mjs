@@ -59,6 +59,21 @@ export async function getBirdData(url) {
     console.log(birds)
     return birds
 };
+
+export async function getHotspotData(url) {
+    const response = await fetch(url, {
+        headers: { "X-eBirdApiToken": EBIRD_API_KEY }
+    
+        
+    });
+    if (!response.ok) {
+        throw new Error (`eBird API error: ${response.status}`);
+        
+    }
+    const hotspots = await response.json();
+    console.log(hotspots);
+    return hotspots;
+}
     
 export function formatDate(dateString) {
     if (!dateString) return "unknown";

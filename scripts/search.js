@@ -1,4 +1,4 @@
-import { loadHeaderFooter, getCoordinates, getBirdData, getWikiBirdData } from "./utils.mjs";
+import { loadHeaderFooter, getCoordinates, getBirdData, getWikiBirdData, getHotspotData } from "./utils.mjs";
 import BirdList from "./BirdList.mjs";
 import BirdSearch from "./BirdSearch.mjs";
 
@@ -31,6 +31,9 @@ locForm.addEventListener("submit", async (e) => {
             
             case 'recent-notable':
                 return getBirdData(`https://api.ebird.org/v2/data/obs/geo/recent/notable?lat=${lat}&lng=${lon}&back=7&maxResults=30`);
+            
+            case 'hotspots':
+                return getHotspotData(`https://api.ebird.org/v2/ref/hotspot/geo?lat=${lat}&lng=${lon}&fmt=json`);
         }
     }
     const birdList = new BirdList(birdDataSource, document.querySelector("#bird-list"), locationInput, selectedRadioButton);

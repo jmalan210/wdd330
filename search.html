@@ -19,7 +19,7 @@
 <main>
    <div class="forms">
     <form id="loc-form">
-        <legend>Search for Birds Seen in Your Area</legend>
+        <legend>Bird Information for Your Area</legend>
         <label for="location">Enter location:</label>
         <input type="text" name="location" id="location" placeholder="City, State or Country" required>
         <label>
@@ -29,6 +29,10 @@
         <label>
             <input type="radio" name="dataType" value="recent-notable" id="recent-notable"/>
             Recent Notable Sightings 
+        </label>
+        <label>
+            <input type="radio" name="dataType" value="hotspots" id="hotspots"/>
+            Hotspots
         </label>
         
         <button type = "submit">Find Birds</button>
