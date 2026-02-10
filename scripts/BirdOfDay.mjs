@@ -7,13 +7,13 @@ export default class BirdOfDay {
     }
 
     async init() {
-        console.log("BirdOfDay.init called. bird =", this.bird);
+        // console.log("BirdOfDay.init called. bird =", this.bird);
         if (!this.bird) return;
         await this.renderBird(this.bird);
     }
 
     async renderBird(bird) {
-        console.log("renderBird called for:", bird.comName);
+        // console.log("renderBird called for:", bird.comName);
 
         let locationName = "Unknown location";
 
@@ -31,8 +31,8 @@ export default class BirdOfDay {
         const sentences = blurb.match(/[^\.!\?]+[\.!\?]+/g) || [];
         const truncatedBlurb = sentences.slice(0, 3).join(' ');
 
-        console.log(bird.comName);
-        console.log(blurb);
+        // console.log(bird.comName);
+        // console.log(blurb);
 
         const birdHTML =
          `
