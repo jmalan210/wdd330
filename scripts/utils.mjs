@@ -45,6 +45,14 @@ export async function getCoordinates(location) {
     
 };
 
+export async function getReadableLocation(lat, lng) {
+    const url = `https://us1.locationiq.com/v1/reverse.php?key=${LOCATIONIQ_API_KEY}&lat=${lat}&lon=${lng}&format=json`;
+    const res = await fetch(url);
+    if (!res.ok) return "Unknown location";
+    const data = await res.json();
+    return data.display_name;
+}
+
 export async function getBirdData(url) {
     const response = await fetch(url, {
         headers: { "X-eBirdApiToken": EBIRD_API_KEY }
