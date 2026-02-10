@@ -100,8 +100,21 @@ h2 {
         
     }
 
-
 }
+
+/* Index Page */
+
+#birdOfDay {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+}
+
+#birdOfDay h2 {
+    text-align: center;
+}
+
+
 
 /*Search Page*/
 

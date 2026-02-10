@@ -1,4 +1,4 @@
-import { formatDate, getReadableLocation } from "./utils.mjs";
+import { formatDate, getReadableLocation, getWikiBirdDetails, getWikiBirdPics } from "./utils.mjs";
 export default class BirdOfDay {
 
     constructor(bird, birdDiv ) {
@@ -17,8 +17,17 @@ export default class BirdOfDay {
         if (bird.lat && bird.lng) {
             locationName = await getReadableLocation(bird.lat, bird.lng);
         }
+
+        const imgUrl = await getWikiBirdPics(bird);
+       
+
         const birdHTML =
-            `
+         `
+         
+         <h2>Bird of the Day</h2>
+        <div id="bodImg"><img src=${imgUrl}></div>
+        <div>
+        
         <h3>${bird.comName}</h3>
         <p><strong>Scientific Name:</strong> <em>${bird.sciName}</em></p>
         <p><strong>Date Observed:</strong> ${formatDate(bird.obsDt)}</p>
