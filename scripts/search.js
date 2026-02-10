@@ -1,6 +1,7 @@
 import { loadHeaderFooter, getCoordinates, getBirdData, getWikiBirdData, getHotspotData } from "./utils.mjs";
 import BirdList from "./BirdList.mjs";
 import BirdSearch from "./BirdSearch.mjs";
+import HotspotList from "./HotspotList.mjs";
 
 
 loadHeaderFooter();
@@ -24,20 +25,27 @@ locForm.addEventListener("submit", async (e) => {
 
     const selectedRadioButton = document.querySelector('input[name="dataType"]:checked').value;
     
-    const birdDataSource = (lat, lon) => {
+    const dataSource = (lat, lon) => {
         switch (selectedRadioButton) {
             case 'recent':
                 return getBirdData(`https://api.ebird.org/v2/data/obs/geo/recent?lat=${lat}&lng=${lon}&back=7&maxResults=30`);
             
-            case 'recent-notable':
+            case 'recentNotable':
                 return getBirdData(`https://api.ebird.org/v2/data/obs/geo/recent/notable?lat=${lat}&lng=${lon}&back=7&maxResults=30`);
             
             case 'hotspots':
                 return getHotspotData(`https://api.ebird.org/v2/ref/hotspot/geo?lat=${lat}&lng=${lon}&fmt=json`);
         }
-    }
-    const birdList = new BirdList(birdDataSource, document.querySelector("#bird-list"), locationInput, selectedRadioButton);
-    await birdList.init(lat, lon);
+    };
+    const classesList = {
+        recent: BirdList,
+        recentNotable: BirdList,
+        hotspots: HotspotList
+    };
+    
+    const classList = classesList[selectedRadioButton];
+    const list = new classList(dataSource, document.querySelector("#bird-list"), locationInput, selectedRadioButton);
+    await list.init(lat, lon);
   
 });
 
