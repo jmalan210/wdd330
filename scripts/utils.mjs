@@ -149,3 +149,17 @@ export async function getWikiBirdDetails(pageId) {
    
 }
 
+export async function getWikiExtractByName(birdName) {
+    const url = `https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext&format=json&origin=*&titles=${encodeURIComponent(birdName)}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    const page = Object.values(data.query.pages)[0];
+    return page.extract || "";
+
+       
+}
+
+export function wikiTitleCase(name) {
+    return name.toLowerCase().replace(/^\w/, c => c.toUpperCase());
+    
+}

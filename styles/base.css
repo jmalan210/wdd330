@@ -108,10 +108,16 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-self: center;
+    width: 50%;
 }
 
 #birdOfDay h2 {
     text-align: center;
+    font-size: 3rem;
+}
+
+#birdofDay img {
+    width: 200px;
 }
 
 
