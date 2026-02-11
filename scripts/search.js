@@ -62,3 +62,14 @@ searchForm.addEventListener("submit", async (e) => {
 });
 
 
+document.addEventListener("click", (e) => {
+    const flipTrigger = e.target.closest(".binocBtn, .flip-back");
+    if (!flipTrigger) return;
+
+    const card = flipTrigger.closest(".bird");
+    card.classList.toggle("flipped");
+
+});
+
+
+

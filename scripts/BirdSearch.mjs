@@ -25,7 +25,7 @@ export default class BirdSearch {
 
     renderBird(details) {
         const sentences = details.extract?.match(/[^\.!\?]+[\.!\?]+/g) || [];
-        const firstFive = sentences.slice(0, 500).join(' ');
+        const firstFive = sentences.slice(0, 5).join(' ');
 
             return (
                 `<li class="searchedBird">

@@ -6,6 +6,22 @@
          grid-template-columns: 2fr 3fr;
          width: 95%;
          margin: 0 auto;
+         animation: slidein;
+         animation-duration: 2s;
+    }
+
+    @keyframes slidein {
+        from {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+        50% {
+            opacity: 0.5;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
     }
 
     #bodImg {
