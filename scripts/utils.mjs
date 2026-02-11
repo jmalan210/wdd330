@@ -94,7 +94,7 @@ export async function getWikiBirdPics(bird) {
     for (let name of namesToTry) {
         if (!name) continue;
    
-        const url = `https://en.wikipedia.org/w/api.php?origin=*&action=query&format=json&prop=pageimages&redirects=1&titles=${encodeURIComponent(name)}&pithumbsize=400`;
+        const url = `https://en.wikipedia.org/w/api.php?origin=*&action=query&format=json&prop=pageimages&redirects=1&titles=${encodeURIComponent(name)}&pithumbsize=800`;
         try {
             const response = await fetch(url);
             const data = await response.json();

@@ -1,0 +1,23 @@
+@media only screen and (min-width: 64rem){
+
+    #bodCard {
+        position: relative;
+        display: grid;
+         grid-template-columns: 2fr 3fr;
+         width: 95%;
+         margin: 0 auto;
+    }
+
+    #bodImg {
+      
+        align-self: center
+       
+    }
+    .bird-link {
+    position: absolute;
+    left: 90%;
+    bottom: 5%;
+    
+   
+}
+}
