@@ -37,7 +37,7 @@ export default class BirdList {
                 <div class="flip-card-front">
                 <h4>${bird.comName}</h4>
                 <img src="${imgUrl}" alt="${bird.comName}" class="flip-img"/>
-                <img src="/images/binoculars.svg" alt="flip card" class="binocBtn"/>
+                <img src="./images/binoculars.svg" alt="flip card" class="binocBtn"/>
                 </div>
 
                 <div class="bird-info flip-card-back">
