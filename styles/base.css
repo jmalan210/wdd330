@@ -214,7 +214,7 @@ form label {
     margin: 10px;
 }
 
-form button, #seen-bird {
+form button, #seen-bird, .mapBtn {
     background-color: var(--orange);
     color: white;
     border: none;
@@ -321,7 +321,7 @@ form button, #seen-bird {
     font-size: 2rem;
     text-align: center;
     background-color:var(--navy);
-    border-bottom: 5px solid var(--light-blue);
+    border-bottom: 5px solid var(--orange);
     color: white;
     margin: 0;
     padding: 5px;
@@ -366,7 +366,7 @@ form button, #seen-bird {
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     display: flex;
     flex-direction: column;
-    background-color: #8fafc160;
+    /* background-color: #8fafc160; */
    }
 
    .flip-card-back {
@@ -387,7 +387,7 @@ form button, #seen-bird {
     
    }
 
-.searchedBird {
+/* .searchedBird {
     list-style-type: none;
     border: 2px solid var(--navy);
     margin-top: 10px;
@@ -399,7 +399,7 @@ form button, #seen-bird {
     font-size: 2rem;
     text-align: center;
     background-color:var(--navy);
-    border-bottom: 5px solid var(--light-blue);
+    border-bottom: 5px solid var(--orange);
     color: white;
     margin: 0;
 
@@ -435,7 +435,7 @@ form button, #seen-bird {
 }
 .searchedBird p {
    margin: 10px;
-}
+} */
 
 .hotspot {
     list-style-type: none;
@@ -449,7 +449,7 @@ form button, #seen-bird {
     font-size: 2rem;
     text-align: center;
     background-color:var(--navy);
-    border-bottom: 5px solid var(--light-blue);
+    border-bottom: 5px solid var(--orange);
     color: white;
     margin: 0;
 
@@ -458,6 +458,8 @@ form button, #seen-bird {
 .hotspot-info {
     padding: 10px;
 }
+
+
 
 .modal {
     display: none;
@@ -476,10 +478,30 @@ form button, #seen-bird {
     border-radius: 20px;
 }
 
+#map-title {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-size: 2rem;
+}
+
 #close-map {
     float: right;
     font-size: 1.5rem;
+    font-weight: 700;
+    background-color: var(--navy);
+    color: white;
     cursor: pointer;
+    padding: 0 5px 0 5px;
+    border-radius: 5px;
+    margin: 5px;
+    align-items: center;
+    
+}
+
+#googleMap {
+    border-radius: 20px;
+    
 }
 
 /* Footer */

@@ -156,7 +156,7 @@ export function createMapModal() {
 
     modal.innerHTML = `
     <div class="modal-content">
-    <span id="close-map">&times;</span>
+    <span id="close-map">X</span>
     <h2 id="map-title"></h2>
     <iframe id="googleMap" width="100%" height="400" style="border:0," loading="lazy"</iframe>
     </div>
