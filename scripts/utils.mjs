@@ -164,3 +164,6 @@ export function wikiTitleCase(name) {
     
 }
 
+export function getGoogleMap(lat, lng, name) {
+    const modal = document.getElementById()
+}

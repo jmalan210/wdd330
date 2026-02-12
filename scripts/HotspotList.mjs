@@ -1,4 +1,4 @@
-import { formatDate } from "./utils.mjs";
+import { formatDate, getGoogleMap } from "./utils.mjs";
 
 export default class HotspotList {
     constructor(dataSource, listElement, location, dataType) {
@@ -6,6 +6,13 @@ export default class HotspotList {
         this.dataSource = dataSource;
         this.listElement = listElement;
         this.dataType = dataType;
+
+        this.listElement.addEventListener("click", (e) => {
+            if (e.target.classList.contains("mapBtn")) {
+                const { lat, lng, name } = e.target.dataset;
+                getGoogleMap(lat, lng, name);
+            }
+        });
     }
     
     async init(lat, lon) {
@@ -26,8 +33,9 @@ export default class HotspotList {
 
     async renderHotspots(hotspots) {
         const hotspotsHTML = await Promise.all(hotspots.map(async hotspot => {
-            return (
-                `<li class="hotspot">
+
+            return `
+                <li class="hotspot">
                 <h4>${hotspot.locName}</h4>
                 <div class="hotspot-info">
                 <p><strong>Latest Observed Date:</strong>${formatDate(hotspot.latestObsDt)}</p>
@@ -38,11 +46,15 @@ export default class HotspotList {
                 <p><strong>Country Code:</strong>${hotspot.countryCode}</p>
                 <p><strong>Subnational Code 1:</strong>${hotspot.subnational1Code}</p>
                 <p><strong>Subnational Code 2:</strong>${hotspot.subnational2Code}</p>
-                
-                `
-            )
-        }));
+                <button class="mapBtn">See on a map</button>
+                </div>
+                </li>
+                `;
+        } ))
 
         this.listElement.innerHTML = hotspotsHTML.join("");
-    }
-}
+    
+        }
+
+        }
+   

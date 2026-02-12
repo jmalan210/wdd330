@@ -458,6 +458,29 @@ form button, #seen-bird {
     padding: 10px;
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 1rem;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 20px;
+}
+
+#close-map {
+    float: right;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
 /* Footer */
 
 .footer {
