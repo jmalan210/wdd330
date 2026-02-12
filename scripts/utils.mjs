@@ -90,7 +90,7 @@ export function formatDate(dateString) {
 }
 
 export async function getWikiBirdPics(bird) {
-    const namesToTry = [bird.comName, bird.sciName];
+    const namesToTry = [bird.sciName, `${bird.comName} (bird)`, bird.comName];
     for (let name of namesToTry) {
         if (!name) continue;
    

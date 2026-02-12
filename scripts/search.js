@@ -1,6 +1,6 @@
 import { loadHeaderFooter, getCoordinates, getBirdData, getWikiBirdData, getHotspotData } from "./utils.mjs";
 import BirdList from "./BirdList.mjs";
-import BirdSearch from "./BirdSearch.mjs";
+// import BirdSearch from "./BirdSearch.mjs";
 import HotspotList from "./HotspotList.mjs";
 
 
@@ -49,17 +49,17 @@ locForm.addEventListener("submit", async (e) => {
   
 });
 
-const searchForm = document.getElementById("search-form");
+// const searchForm = document.getElementById("search-form");
 
-searchForm.addEventListener("submit", async (e) => {
-    e.preventDefault(); 
-    const searchInput = document.getElementById("bird-name").value;
+// searchForm.addEventListener("submit", async (e) => {
+//     e.preventDefault(); 
+//     const searchInput = document.getElementById("bird-name").value;
     
-    const birdSearch = new BirdSearch(getWikiBirdData, document.querySelector("#bird-list"));
+//     const birdSearch = new BirdSearch(getWikiBirdData, document.querySelector("#bird-list"));
     
-    const details = await birdSearch.init(searchInput);
-    console.log(details);
-});
+//     const details = await birdSearch.init(searchInput);
+//     console.log(details);
+// });
 
 
 document.addEventListener("click", (e) => {
