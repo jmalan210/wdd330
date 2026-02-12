@@ -130,24 +130,7 @@ export async function getWikiBirdData(query) {
     
 };
 
-// export async function getWikiBirdDetails(pageId) {
-//     const url = 'https://en.wikipedia.org/w/api.php?' +
-//         new URLSearchParams({
-//             action: "query",
-//             pageids: pageId,
-//             prop: "extracts|pageimages",
-//             exintro: true,
-//             explaintext: true,
-//             piprop: "thumbnail",
-//             pithumbsize: 400,
-//             format: "json",
-//             origin: "*"
-//         });
-//     const res = await fetch(url);
-//     const data = await res.json();
-//     return data.query.pages[pageId];
-   
-// }
+
 
 export async function getWikiExtractByName(birdName) {
     const url = `https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext&format=json&origin=*&titles=${encodeURIComponent(birdName)}`;
@@ -164,6 +147,45 @@ export function wikiTitleCase(name) {
     
 }
 
-export function getGoogleMap(lat, lng, name) {
-    const modal = document.getElementById()
+export function createMapModal() {
+    if (document.getElementById("map-modal")) return;
+
+    const modal = document.createElement('div');
+    modal.id = "map-modal";
+    modal.className = "modal";
+
+    modal.innerHTML = `
+    <div class="modal-content">
+    <span id="close-map">&times;</span>
+    <h2 id="map-title"></h2>
+    <iframe id="googleMap" width="100%" height="400" style="border:0," loading="lazy"</iframe>
+    </div>
+
+    `
+
+    document.body.appendChild(modal);
+
+    const closeBtn = document.getElementById("close-map");
+    closeBtn.onclick = () => modal.style.display = "none";
+
+    
+    modal.onclick = (e) => {
+        if (e.target === modal) modal.style.display = "none";
+    };
+}
+
+export function openGoogleMapModal(lat, lng, name) {
+    const modal = document.getElementById("map-modal");
+    const title = document.getElementById("map-title");
+    const iframe = document.getElementById("googleMap");
+
+    title.textContent = name;
+    iframe.src = `https://www.google.com/maps?q=${lat},${lng}&z=14&output=embed`;
+
+    if (typeof modal.showModal === "function") {
+        modal.showModal();
+    } else {
+
+        modal.style.display = "block";
+    }
 }

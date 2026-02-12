@@ -1,4 +1,4 @@
-import { formatDate, getGoogleMap } from "./utils.mjs";
+import { formatDate, createMapModal, openGoogleMapModal } from "./utils.mjs";
 
 export default class HotspotList {
     constructor(dataSource, listElement, location, dataType) {
@@ -9,8 +9,10 @@ export default class HotspotList {
 
         this.listElement.addEventListener("click", (e) => {
             if (e.target.classList.contains("mapBtn")) {
+                // console.log("button clicked");
                 const { lat, lng, name } = e.target.dataset;
-                getGoogleMap(lat, lng, name);
+                createMapModal();
+                openGoogleMapModal(lat, lng, name);
             }
         });
     }
@@ -32,7 +34,7 @@ export default class HotspotList {
     }
 
     async renderHotspots(hotspots) {
-        const hotspotsHTML = await Promise.all(hotspots.map(async hotspot => {
+        const hotspotsHTML = hotspots.map(hotspot => {
 
             return `
                 <li class="hotspot">
@@ -46,11 +48,16 @@ export default class HotspotList {
                 <p><strong>Country Code:</strong>${hotspot.countryCode}</p>
                 <p><strong>Subnational Code 1:</strong>${hotspot.subnational1Code}</p>
                 <p><strong>Subnational Code 2:</strong>${hotspot.subnational2Code}</p>
-                <button class="mapBtn">See on a map</button>
+                <button class="mapBtn"
+                data-lat="${hotspot.lat}"
+                data-lng="${hotspot.lng}"
+                data-name="${hotspot.locName}">
+                See on a map
+                </button>
                 </div>
                 </li>
                 `;
-        } ))
+        } )
 
         this.listElement.innerHTML = hotspotsHTML.join("");
     
