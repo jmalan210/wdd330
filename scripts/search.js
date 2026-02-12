@@ -1,7 +1,8 @@
-import { loadHeaderFooter, getCoordinates, getBirdData, getWikiBirdData, getHotspotData } from "./utils.mjs";
+import { loadHeaderFooter, getCoordinates, getBirdData, getHotspotData } from "./utils.mjs";
 import BirdList from "./BirdList.mjs";
 // import BirdSearch from "./BirdSearch.mjs";
 import HotspotList from "./HotspotList.mjs";
+import WeatherCard from "./WeatherCard.mjs";
 
 
 loadHeaderFooter();
@@ -12,7 +13,7 @@ const locForm = document.getElementById("loc-form");
 locForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const locationInput = document.getElementById("location").value;
-    if (!location) {
+    if (!locationInput) {
         return;
     }
     const coordinates = await getCoordinates(locationInput);
@@ -46,6 +47,10 @@ locForm.addEventListener("submit", async (e) => {
     const classList = classesList[selectedRadioButton];
     const list = new classList(dataSource, document.querySelector("#bird-list"), locationInput, selectedRadioButton);
     await list.init(lat, lon);
+
+   
+    const weatherCard = new WeatherCard("weather-data");
+    await weatherCard.show(lat, lon, locationInput);
   
 });
 
