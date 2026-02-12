@@ -52,7 +52,7 @@ export default class BirdList {
                 <p><a href = "https://ebird.org/species/${bird.speciesCode}" target="blank">Learn More about ${bird.comName}</a></p>
                 </div>
                 <button class="seen-bird">I've seen this bird</button>
-                 <img src="/images/back-arrow.svg" alt="back arrow" class="flip-back">
+                 <img src="./images/back-arrow.svg" alt="back arrow" class="flip-back">
                  </div>
                 
                  </div>
