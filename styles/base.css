@@ -378,6 +378,7 @@ form button, #seen-bird {
     border: 2px solid var(--navy);
     align-items: center;
     justify-content: center;
+    padding: 20px;
     
    }
 
