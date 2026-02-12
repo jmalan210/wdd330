@@ -181,6 +181,8 @@ h2 {
 }
 .binocs {
     transition: transform 0.2s;
+ 
+    
 }
 
 .bird-link:hover .binocs {
@@ -388,6 +390,7 @@ form button, #seen-bird {
     list-style-type: none;
     border: 2px solid var(--navy);
     margin-top: 10px;
+    width: 75%
 
 }
 
@@ -401,9 +404,36 @@ form button, #seen-bird {
 
 }
 
-.searchedBird img {
+.bird-links a, .bird-links span {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: var(--orange);
+    font-weight: bold;
+}
+
+.bird-links a:hover {
+    color: #b43f08;
+    transform: scale(1.1);
+
+}
+
+.srchImg {
     float: left;
-    padding: 10px;
+    margin: 10px;
+    border-radius: 20px;
+    border: 2px solid var(--navy);
+
+}
+
+.bird-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+.searchedBird p {
+   margin: 10px;
 }
 
 .hotspot {
