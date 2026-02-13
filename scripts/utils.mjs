@@ -189,3 +189,11 @@ export function openGoogleMapModal(lat, lng, name) {
         modal.style.display = "block";
     }
 }
+
+export function windDir(deg) {
+    const directions = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
+
+    return directions[Math.round(deg / 22.5) % 16];
+
+
+}

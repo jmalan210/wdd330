@@ -1,4 +1,4 @@
-import { formatDate } from "./utils.mjs";
+import { formatDate, windDir } from "./utils.mjs";
 
 export default class {
 
@@ -15,7 +15,7 @@ export default class {
         const endDate = new Date(today);
         endDate.setDate(today.getDate() + 3);
         const endDateStr = `${endDate.getFullYear()}-${String(endDate.getMonth() + 1).padStart(2, "0")}-${String(endDate.getDate()).padStart(2, "0")}`;
-      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset&current=temperature_2m,relative_humidity_2m,wind_speed_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=auto&start_date=${startDate}&end_date=${endDateStr}`;
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset&current=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=auto&start_date=${startDate}&end_date=${endDateStr}`;
 
 
     const response = await fetch(url);
@@ -40,12 +40,17 @@ export default class {
         currentHTML.classList.add("weather-current");
 
         currentHTML.innerHTML =
-            `<h3>Is it good birding weather in ${cityName}?</h3>
-            <h4>${formatDate(current.time)}</h4>
-            <p><strong>Current Time:</strong> ${formattedTime}
-            <p><strong>Current Temp:</strong> ${current.temperature_2m}°F</p>
-            <p><strong>Wind:</strong> ${current.wind_speed_10m} mph</p>
-            <p><strong>Sunrise:</strong> ${new Date(daily.sunrise[0]).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}</p>
+            `<div class="wthrToday">
+            <h3>Is it good birding weather in <span>${cityName}?</span></h3>
+            <h4><strong>${formatDate(current.time)}</strong></h4>
+            <p class="time"><strong>${formattedTime}</strong></p>
+            <p class="current-temp"><strong>${Math.round(current.temperature_2m)}°F</strong></p>
+            <p class="rel-hum"><strong>Relative Humidity:</strong> ${current.relative_humidity_2m}%</p>
+            <p class="wind"><strong>Wind:</strong> ${Math.round(current.wind_speed_10m)} mph ${windDir(current.wind_direction_10m)}</p>
+            
+            <p class="sunrise"><strong>Sunrise:</strong> ${new Date(daily.sunrise[0]).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}</p>
+            <p class="sunset"><strong>Sunset:</strong> ${new Date(daily.sunset[0]).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}</p>
+            </div>
             `;
         
         card.appendChild(currentHTML);
@@ -61,15 +66,18 @@ export default class {
             const dateStr = daily.time[i];
             const[year, month, day] = dateStr.split("-").map(Number);
             const date = new Date(year, month - 1, day);
-            const formattedDate = date.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });     
+            const formattedDate = date.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
+            
            
             const dayForecast = document.createElement("div");
             dayForecast.classList.add("weather-day");
             dayForecast.innerHTML = `
-            <strong>${formattedDate}</strong>:
-            Min${daily.temperature_2m_min[i]}°F - Max ${daily.temperature_2m_max[i]}°F<br>
-            Sunrise: ${new Date(daily.sunrise[i]).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })},
-            Sunset: ${new Date(daily.sunset[i]).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}
+            <p class="forecast-date"><strong>${formattedDate}</strong></p>
+            <p><strong>Min:</strong> ${Math.round(daily.temperature_2m_min[i])}°F</p>
+            <p><strong>Max:</strong> ${Math.round(daily.temperature_2m_max[i])}°F</p>
+            <p><strong>Sunrise:</strong> ${new Date(daily.sunrise[i]).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}</p>
+            <p><strong>Sunset:</strong> ${new Date(daily.sunset[i]).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}</p>
+            
             `;
             forecastDiv.appendChild(dayForecast);
 
