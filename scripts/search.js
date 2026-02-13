@@ -1,4 +1,4 @@
-import { loadHeaderFooter, getCoordinates, getBirdData, getHotspotData, saveSighting, saveFavHotspot, removeFavHotspot } from "./utils.mjs";
+import { loadHeaderFooter, getCoordinates, getBirdData, getHotspotData, saveSighting, removeSighting, saveFavHotspot, removeFavHotspot } from "./utils.mjs";
 import BirdList from "./BirdList.mjs";
 // import BirdSearch from "./BirdSearch.mjs";
 import HotspotList from "./HotspotList.mjs";
@@ -66,21 +66,23 @@ document.addEventListener("click", (e) => {
 
 document.addEventListener("click", (e) => {
     if (!e.target.classList.contains("seen-bird")) return;
-    const btn = e.target.dataset;
+    const checkbox = e.target;
+    const {species, name, sci } = checkbox.dataset;
 
     const sighting = {
-        speciesCode: btn.species,
-        commonName: btn.name,
-        scientificName: btn.sci,
+        speciesCode: species,
+        commonName: name,
+        scientificName: sci,
         dateRecorded: new Date().toISOString()
 
     };
 
-    saveSighting(sighting);
+    if (checkbox.checked) {
 
-    e.target.textContent = "✓ Seen!"
-    e.target.classList.add("seen");
-    e.target.disabled = true;
+         saveSighting(sighting);
+    } else {
+        removeSighting(species);
+    }
 });
 
 document.addEventListener("click", (e) => {

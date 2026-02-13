@@ -210,16 +210,18 @@ export function saveSighting(bird) {
 export function restoreSeenButtons() {
     const seen = JSON.parse(localStorage.getItem("seenBirds")) || [];
     
-    document.querySelectorAll(".seen-bird").forEach(btn => {
-        if (seen.some(b => b.speciesCode === btn.dataset.species)) {
-            btn.textContent = "✓ Seen!"
-            btn.classList.add("seen");
-            btn.disabled = true;
+    document.querySelectorAll(".seen-bird").forEach(checkbox => {
+        if (seen.some(b => b.speciesCode === checkbox.dataset.species)) {
+            checkbox.checked = true;
         }
     }
+    );
+}
 
-
-    );console.log("Seen buttons found:", document.querySelectorAll(".seen-bird").length);
+export function removeSighting(speciesCode) {
+    const stored = JSON.parse(localStorage.getItem("seenBirds")) || [];
+    const filtered = stored.filter(b => b.speciesCode !== speciesCode);
+    localStorage.setItem("seenBirds", JSON.stringify(filtered));
 }
 
 export function saveFavHotspot(locId, locName) {

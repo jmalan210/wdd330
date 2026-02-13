@@ -62,11 +62,12 @@ export default class BirdList {
                 <p><strong>Number spotted:</strong> ${bird.howMany ?? "unknown"}</p>
                 <p><a href = "https://ebird.org/species/${bird.speciesCode}" target="blank">Learn More about ${bird.comName}</a></p>
                 </div>
-                <button class="seen-bird"
+                <label class="seen-bird-label">
+                <input type="checkbox" class="seen-bird"
                 data-name="${bird.comName}"
                 data-sci="${bird.sciName}"
-                data-species="${bird.speciesCode}">
-                I've seen this bird</button>
+                data-species="${bird.speciesCode}"/>
+                I've seen this bird</label>
                 <img src="./images/back-arrow.svg" alt="back arrow" class="flip-back">
                 </div>
                 
