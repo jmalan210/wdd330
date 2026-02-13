@@ -43,14 +43,14 @@ export default class HotspotList {
                 <li class="hotspot">
                 <h4>${hotspot.locName}</h4>
                 <div class="hotspot-info">
-                <p><strong>Latest Observed Date:</strong>${formatDate(hotspot.latestObsDt)}</p>
-                <p><strong>All Time Highest Number of Checklists:</strong>${hotspot.numChecklistsAllTime}</p>
-                <p><strong>All Time Highest Number of Species:</strong>${hotspot.numSpeciesAllTime}</p>
-                <p><strong>Latitude:</strong>${hotspot.lat}</p>
-                <p><strong>Longitude:</strong>${hotspot.lng}</p>
-                <p><strong>Country Code:</strong>${hotspot.countryCode}</p>
-                <p><strong>Subnational Code 1:</strong>${hotspot.subnational1Code}</p>
-                <p><strong>Subnational Code 2:</strong>${hotspot.subnational2Code}</p>
+                <p><strong>Latest Observed Date:</strong> ${formatDate(hotspot.latestObsDt)}</p>
+                <p><strong>All Time Highest Number of Checklists:</strong> ${hotspot.numChecklistsAllTime}</p>
+                <p><strong>All Time Highest Number of Species:</strong> ${hotspot.numSpeciesAllTime}</p>
+                <p><strong>Latitude:</strong> ${hotspot.lat}</p>
+                <p><strong>Longitude:</strong> ${hotspot.lng}</p>
+                <p><strong>Country Code:</strong> ${hotspot.countryCode}</p>
+                <p><strong>Subnational Code 1:</strong> ${hotspot.subnational1Code}</p>
+                <p><strong>Subnational Code 2:</strong> ${hotspot.subnational2Code}</p>
                 <button class="mapBtn"
                 data-lat="${hotspot.lat}"
                 data-lng="${hotspot.lng}"
