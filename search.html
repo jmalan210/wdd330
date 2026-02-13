@@ -17,8 +17,9 @@
    
     </header>
 <main>
-   <div class="forms">
+   
     <form id="loc-form">
+        <fieldset>
         <legend>Bird Information for Your Area</legend>
         <label for="location">Enter location:</label>
         <input type="text" name="location" id="location" placeholder="City, State or Country" required>
@@ -36,10 +37,14 @@
         </label>
         
         <button type = "submit">Search</button>
+        </fieldset>
     </form>
+    <div class="weather-map">
     <div id="weather-data"></div>
+    <div id="map"></div>
+    
+   </div>
    
-    </div>
     <h3 id="list-title"></h3>
     
     <div >

@@ -41,7 +41,7 @@ export default class {
 
         currentHTML.innerHTML =
             `<div class="wthrToday">
-            <h3>Is it good birding weather in <span>${cityName}?</span></h3>
+            <h3>Today in <span>${cityName}?</span></h3>
             <h4><strong>${formatDate(current.time)}</strong></h4>
             <p class="time"><strong>${formattedTime}</strong></p>
             <p class="current-temp"><strong>${Math.round(current.temperature_2m)}°F</strong></p>

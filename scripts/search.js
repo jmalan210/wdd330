@@ -8,6 +8,7 @@ import WeatherCard from "./WeatherCard.mjs";
 loadHeaderFooter();
 
 const locForm = document.getElementById("loc-form");
+const searchPageMap = document.getElementById("map");
 
 
 locForm.addEventListener("submit", async (e) => {
@@ -44,14 +45,26 @@ locForm.addEventListener("submit", async (e) => {
         hotspots: HotspotList
     };
     
+    const weatherCard = new WeatherCard("weather-data");
+    await weatherCard.show(lat, lon, locationInput);
+
+    searchPageMap.innerHTML = "";
+    const iframe = document.createElement("iframe");
+    iframe.classList.add("searchPageMap")
+    iframe.src = `https://www.google.com/maps?q=${lat},${lon}&z=4&output=embed`;
+    iframe.width="100%";
+    iframe.height="100%";
+    iframe.loading = "lazy";
+    iframe.referrerPolicy = "no-referrer-when-downgrade";
+    
+    searchPageMap.appendChild(iframe);
+  
     const classList = classesList[selectedRadioButton];
     const list = new classList(dataSource, document.querySelector("#bird-list"), locationInput, selectedRadioButton);
     await list.init(lat, lon);
 
    
-    const weatherCard = new WeatherCard("weather-data");
-    await weatherCard.show(lat, lon, locationInput);
-  
+    
 });
 
 

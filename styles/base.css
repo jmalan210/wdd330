@@ -196,33 +196,50 @@ h2 {
 
 /*Search Page*/
 
-.forms {
-    display: flex;
-    justify-content: center;
+form {
+    background-color: var(--navy);
+    color: white;
+   margin-top: 10px;
+   padding: 10px;
+}
+form legend {
+    text-align: center;
+    font-size: 2rem;
+    
 }
 
-form {
-    justify-self: center;
-    max-width: 300px; 
-    border: 2px solid var(--navy);
-    border-radius: 20px;
+fieldset {
+    
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+    background-color: var(--navy);
+    color: white;
+   border: none;
     padding: 10px;
     margin: 10px;
     
     }
 
+
+
+
 form label {
     display: flex;
     justify-content: flex-start;
     text-align: left;
-    margin: 10px;
+    font-size: 1.1rem;
+}
+
+form input {
+    font-size: 1.5rem;
 }
 
 form button, .mapBtn {
     background-color: var(--orange);
     color: white;
     border: none;
-    width: 200px;
+    width: 20%;
     display: inline-block;
     align-self: center;
     justify-content: baseline;
@@ -234,11 +251,32 @@ form button, .mapBtn {
 
 }
 
-/*weather card */
+/*weather & map cards */
+
+.weather-map {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    align-items: stretch;
+    
+
+}
 
 
+#weather-data, #map {
+    flex: 1;
+}
+
+#map {   
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    margin: 10px;
+    border: 2px solid var(--navy)
+}
 
 .weather-card {
+    display: flex;
     padding: 0;
     margin: 10px;
     border: 2px solid var(--navy)
@@ -276,7 +314,7 @@ form button, .mapBtn {
     
     & .current-temp {
        
-        font-size: 2.5rem;
+        font-size: 2rem;
 
     }
 
