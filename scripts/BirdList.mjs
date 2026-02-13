@@ -51,7 +51,7 @@ export default class BirdList {
                 <img src="./images/binoculars.svg" alt="flip card" class="binocBtn"/>
                 </div>
 
-                <div class="bird-info flip-card-back">
+                <div class="flip-card-back">
                 <div class="info-wrap">
                 <p><strong>Scientific name:</strong> <em>${bird.sciName}</em></p>
                 <p><strong>Date observed:</strong> ${formatDate(bird.obsDt)}</p>
@@ -60,8 +60,9 @@ export default class BirdList {
                 <p><strong>Longitude:</strong> ${bird.lng}</p>
                 <p><strong>Private Location:</strong> ${privLoc}</p>
                 <p><strong>Number spotted:</strong> ${bird.howMany ?? "unknown"}</p>
-                <p><a href = "https://ebird.org/species/${bird.speciesCode}" target="blank">Learn more about<br>${bird.comName}</a></p>
+               
                 </div>
+                <a href = "https://ebird.org/species/${bird.speciesCode}" target="blank">Learn more about<br>${bird.comName}</a>
                 <div class="flip-card-controls">
                 <label class="seen-bird-label">
                 <input type="checkbox" class="seen-bird"

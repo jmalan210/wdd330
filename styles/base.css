@@ -388,29 +388,11 @@ form button, .mapBtn {
 }
 
 
-.binocBtn:hover, .flip-back:hover {
+.binocBtn:hover{
     transform: scale(1.15) rotate(5deg);
 }
 
-.bird a {
-   
-   text-decoration: none;
-   font-weight: bold;
-   color: var(--orange);
-   font-size: 1.2rem;
-   display: inline-block;
-   transition: transform 0.2s ease;
-   margin: 20px;
-   max-width: 75%;
-   text-align: center;
-}
 
-.bird a:hover {
-    color: #b43f08;
-    transform: scale(1.1);
-    
-    
-}
 
 .flip-card-front h4 {
     font-size: 2rem;
@@ -450,7 +432,6 @@ form button, .mapBtn {
     position:absolute;
     width: 100%;
     height: 100%;
-   
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     display: flex;
     flex-direction: column;
@@ -458,9 +439,11 @@ form button, .mapBtn {
    }
 
    .flip-card-back {
+    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
     width: 100%;
     height: 100%;
     transform: rotateX(180deg);
@@ -472,25 +455,57 @@ form button, .mapBtn {
    }
 
    .info-wrap {
-    justify-self: center;
-   }
    
+    max-width: 90%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 50px;
+    
+   
+   }
+
+   .flip-card-back a {
+    display: block;
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--orange);
+    font-size: 1.2rem;
+    transition: transform 0.2s ease;
+    margin: 20px;
+   
+  
+}
+
+.flip-card-back a:hover {
+    color: #b43f08;
+    transform: scale(1.1);
+    
+    
+}
 
    .flip-card-controls {
-    
     display: flex;
     justify-content: space-between;
     gap: 10px;
     margin-top: auto;
     align-items: center;
+    width: 100%;
    }
 
    .flip-back {
     width: 40px;
     cursor: pointer;
+    transform: rotate(90deg);
     transition: transform 0.2s ease;
-}
 
+}
+.flip-back:hover {
+    transform: rotate(85deg) scale(1.15);
+}
 .seen-bird {
     width: 25px;
     height: 25px;
