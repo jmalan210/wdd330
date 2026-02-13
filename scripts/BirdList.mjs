@@ -1,4 +1,4 @@
-import { formatDate, getWikiBirdPics } from "./utils.mjs";
+import { formatDate, getWikiBirdPics, restoreSeenButtons } from "./utils.mjs";
 
 
 export default class BirdList {
@@ -21,10 +21,19 @@ export default class BirdList {
         this.birds = birds;
         const title = document.getElementById("list-title");
         const titles = { recent: "Recent Sightings", recentNotable: "Recent Notable Sightings" };
-        title.innerHTML = `<h4>${titles[this.dataType]} for <span id="title-loc">${this.location}</span><h4>
+        title.innerHTML = `<h4>${titles[this.dataType]} for <span id="title-loc">${this.location}</span></h4>
         <p id="subtitle">Click <img src="images/binoculars.svg" alt="binoculars" width="50"> for more information!</p>`;
         this.renderBirds(this.birds);
+
+        await this.renderBirds(this.birds);
+
+        requestAnimationFrame(() => {
+
+            restoreSeenButtons();
+        }); //waits for DOM to paint, then restores seen buttons
+       
     }
+
     async renderBirds(birds) {
         const birdsHTML = await Promise.all(birds.map(async bird => {
             const imgUrl = await getWikiBirdPics(bird);
@@ -36,7 +45,9 @@ export default class BirdList {
 
                 <div class="flip-card-front">
                 <h4>${bird.comName}</h4>
+                <div class="bird-wrap">
                 <img src="${imgUrl}" alt="${bird.comName}" class="flip-img"/>
+                </div>
                 <img src="./images/binoculars.svg" alt="flip card" class="binocBtn"/>
                 </div>
 
@@ -51,16 +62,23 @@ export default class BirdList {
                 <p><strong>Number spotted:</strong> ${bird.howMany ?? "unknown"}</p>
                 <p><a href = "https://ebird.org/species/${bird.speciesCode}" target="blank">Learn More about ${bird.comName}</a></p>
                 </div>
-                <button class="seen-bird">I've seen this bird</button>
-                 <img src="./images/back-arrow.svg" alt="back arrow" class="flip-back">
-                 </div>
+                <button class="seen-bird"
+                data-name="${bird.comName}"
+                data-sci="${bird.sciName}"
+                data-species="${bird.speciesCode}">
+                I've seen this bird</button>
+                <img src="./images/back-arrow.svg" alt="back arrow" class="flip-back">
+                </div>
                 
                  </div>
                 </li>`
             )
         }));
         this.listElement.innerHTML = birdsHTML.join("");
+
     }
+
+    
 }
     
 

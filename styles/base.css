@@ -358,6 +358,7 @@ form button, #seen-bird, .mapBtn {
 .flip-img{
     border-radius: 10px;
     width: auto;
+    max-width:100%;
     height: 250px;
     border: 2px solid var(--navy);
     margin-top: auto;
@@ -367,6 +368,14 @@ form button, #seen-bird, .mapBtn {
     padding-top: 0;
     box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
 
+}
+
+.bird-wrap{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
 }
 
 .flip-back, .binocBtn {
@@ -471,55 +480,7 @@ form button, #seen-bird, .mapBtn {
     
    }
 
-/* .searchedBird {
-    list-style-type: none;
-    border: 2px solid var(--navy);
-    margin-top: 10px;
-    width: 75%
-
-}
-
-.searchedBird h4 {
-    font-size: 2rem;
-    text-align: center;
-    background-color:var(--navy);
-    border-bottom: 5px solid var(--orange);
-    color: white;
-    margin: 0;
-
-}
-
-.bird-links a, .bird-links span {
-    text-decoration: none;
-    font-size: 1.2rem;
-    color: var(--orange);
-    font-weight: bold;
-}
-
-.bird-links a:hover {
-    color: #b43f08;
-    transform: scale(1.1);
-
-}
-
-.srchImg {
-    float: left;
-    margin: 10px;
-    border-radius: 20px;
-    border: 2px solid var(--navy);
-
-}
-
-.bird-links {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-}
-.searchedBird p {
-   margin: 10px;
-} */
+   /*Hotspot*/
 
 .hotspot {
     list-style-type: none;
@@ -586,6 +547,26 @@ form button, #seen-bird, .mapBtn {
 #googleMap {
     border-radius: 20px;
     
+}
+
+.fav-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    float: right;
+}
+
+.fav-btn .heart-icon {
+    width: 40px;
+    height: 40px;
+    stroke: var(--orange);
+    fill: none;
+    transition: fill 0.2s, stroke 0.2s;
+}
+
+.fav-btn.favorited .heart-icon {
+    fill: var(--orange);
 }
 
 /* Footer */

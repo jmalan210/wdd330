@@ -197,3 +197,57 @@ export function windDir(deg) {
 
 
 }
+
+export function saveSighting(bird) {
+    const key = "seenBirds";
+    const stored = JSON.parse(localStorage.getItem(key)) || [];
+    if (stored.some(b => b.speciesCode === bird.speciesCode)) return;
+    stored.push(bird);
+    localStorage.setItem(key, JSON.stringify(stored));
+    console.log("Saved:", bird);
+}
+
+export function restoreSeenButtons() {
+    const seen = JSON.parse(localStorage.getItem("seenBirds")) || [];
+    
+    document.querySelectorAll(".seen-bird").forEach(btn => {
+        if (seen.some(b => b.speciesCode === btn.dataset.species)) {
+            btn.textContent = "✓ Seen!"
+            btn.classList.add("seen");
+            btn.disabled = true;
+        }
+    }
+
+
+    );console.log("Seen buttons found:", document.querySelectorAll(".seen-bird").length);
+}
+
+export function saveFavHotspot(locId, locName) {
+    const key = "favHotSpots";
+    const stored = JSON.parse(localStorage.getItem(key)) || [];
+    if (!stored.some(h => h.locId === locId)) {
+
+        stored.push({ locId, locName });
+    localStorage.setItem(key, JSON.stringify(stored));
+    }
+   
+    console.log("Saved:", stored);
+}
+
+export function removeFavHotspot(locId) {
+    const key = "favHotSpots";
+    const stored = JSON.parse(localStorage.getItem(key)) || [];
+    const filtered = stored.filter(h => h.locId !== locId);
+    localStorage.setItem(key, JSON.stringify(filtered));
+    console.log("removed, new list:", filtered);
+}
+
+export function restoreFavButtons() {
+    const stored = JSON.parse(localStorage.getItem("favHotSpots")) || [];
+    document.querySelectorAll(".fav-btn").forEach(btn => {
+        const locId = btn.dataset.locid;
+        if (stored.some(h => h.locId === locId)) {
+            btn.classList.add("favorited");
+        }
+    });
+}

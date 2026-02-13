@@ -1,4 +1,4 @@
-import { loadHeaderFooter, getCoordinates, getBirdData, getHotspotData } from "./utils.mjs";
+import { loadHeaderFooter, getCoordinates, getBirdData, getHotspotData, saveSighting, saveFavHotspot, removeFavHotspot } from "./utils.mjs";
 import BirdList from "./BirdList.mjs";
 // import BirdSearch from "./BirdSearch.mjs";
 import HotspotList from "./HotspotList.mjs";
@@ -54,18 +54,6 @@ locForm.addEventListener("submit", async (e) => {
   
 });
 
-// const searchForm = document.getElementById("search-form");
-
-// searchForm.addEventListener("submit", async (e) => {
-//     e.preventDefault(); 
-//     const searchInput = document.getElementById("bird-name").value;
-    
-//     const birdSearch = new BirdSearch(getWikiBirdData, document.querySelector("#bird-list"));
-    
-//     const details = await birdSearch.init(searchInput);
-//     console.log(details);
-// });
-
 
 document.addEventListener("click", (e) => {
     const flipTrigger = e.target.closest(".binocBtn, .flip-back");
@@ -76,5 +64,45 @@ document.addEventListener("click", (e) => {
 
 });
 
+document.addEventListener("click", (e) => {
+    if (!e.target.classList.contains("seen-bird")) return;
+    const btn = e.target.dataset;
+
+    const sighting = {
+        speciesCode: btn.species,
+        commonName: btn.name,
+        scientificName: btn.sci,
+        dateRecorded: new Date().toISOString()
+
+    };
+
+    saveSighting(sighting);
+
+    e.target.textContent = "✓ Seen!"
+    e.target.classList.add("seen");
+    e.target.disabled = true;
+});
+
+document.addEventListener("click", (e) => {
+   
+    const btn = e.target.closest(".fav-btn");
+    if (!btn) return;
+
+    const locId = btn.dataset.locid;
+    const locName = btn.dataset.name;
+
+    btn.classList.toggle("favorited");
+
+    if (btn.classList.contains("favorited")) {
+        saveFavHotspot(locId, locName);
+    } else {
+        removeFavHotspot(locId);
+   
+    }
+});
+
+    
+
+   
 
 
