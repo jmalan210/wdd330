@@ -32,8 +32,8 @@ export default class {
         console.log(current.temperature_2m);
 
         this.divElement.innerHTML = "";
-        const card = document.createElement("div");
-        card.classList.add("weather-card");
+        // const card = document.createElement("div");
+        // card.classList.add("weather-card");
 
         //current weather
         const currentHTML = document.createElement("div");
@@ -41,11 +41,11 @@ export default class {
 
         currentHTML.innerHTML =
             `<div class="wthrToday">
-            <h3>Today in <span>${cityName}?</span></h3>
+            <h3>Today in <span>${cityName}</span></h3>
             <h4><strong>${formatDate(current.time)}</strong></h4>
             <p class="time"><strong>${formattedTime}</strong></p>
             <p class="current-temp"><strong>${Math.round(current.temperature_2m)}°F</strong></p>
-            <p class="rel-hum"><strong>Relative Humidity:</strong> ${current.relative_humidity_2m}%</p>
+            <p class="rel-hum"><strong>Rel. Humidity:</strong> ${current.relative_humidity_2m}%</p>
             <p class="wind"><strong>Wind:</strong> ${Math.round(current.wind_speed_10m)} mph ${windDir(current.wind_direction_10m)}</p>
             
             <p class="sunrise"><strong>Sunrise:</strong> ${new Date(daily.sunrise[0]).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}</p>
@@ -53,12 +53,12 @@ export default class {
             </div>
             `;
         
-        card.appendChild(currentHTML);
+        this.divElement.appendChild(currentHTML);
 
         //3-day forecast
         const forecastDiv = document.createElement("div")
         forecastDiv.classList.add("three-day-forecast");
-        const forecastHeader = document.createElement("h4");
+        const forecastHeader = document.createElement("h3");
         forecastHeader.textContent = "3-Day Forecast";
         forecastDiv.appendChild(forecastHeader);
 
@@ -82,8 +82,8 @@ export default class {
             forecastDiv.appendChild(dayForecast);
 
         };
-        card.appendChild(forecastDiv);
-        this.divElement.appendChild(card);
+       
+        this.divElement.appendChild(forecastDiv);
     }
     
     async show(lat, lng, cityName = "") {
