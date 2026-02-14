@@ -199,23 +199,22 @@ h2 {
 form {
     background-color: var(--navy);
     color: white;
-   margin-top: 10px;
+   margin: 10px;
    padding: 10px;
 }
 form legend {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
     
 }
 
 fieldset {
     
    display: flex;
-   justify-content: space-between;
-   align-items: center;
+   flex-direction: column;
     background-color: var(--navy);
     color: white;
-   border: none;
+    border: none;
     padding: 10px;
     margin: 10px;
     
@@ -229,6 +228,7 @@ form label {
     justify-content: flex-start;
     text-align: left;
     font-size: 1.1rem;
+    padding: 10px;
 }
 
 form input {
