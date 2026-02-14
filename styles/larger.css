@@ -36,4 +36,27 @@
     
    
 }
+
+ #weather-data {
+    display: flex;
+        flex-direction: row;
+        align-items: stretch;
+       gap: 8px;
+    }
+   
+    #weather-today, #weather-forecast, #map {
+        flex: 1 1 0;
+    }
+
+    #weather-today, #weather-forecast, #map {
+    flex: 1 1 0;
+    min-width: 0;
+    }
+
+    
+
+#map iframe {
+    width: 100%;
+    height: 100%;
+}
 }

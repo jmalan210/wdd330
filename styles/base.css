@@ -253,37 +253,24 @@ form button, .mapBtn {
 
 /*weather & map cards */
 
-
-
-
-#weather-data, #map {
-    flex: 1;
-}
-
 #weather-data {
-    margin: 10px;
+   
     display: flex;
-    flex-direction: row;
-    align-content: space-between;
+    flex-direction: column;
     gap: 8px;
+    margin: 10px;
    
 
 }
 
-#map {   
-    width: 100%;
-    min-height: 100%;
-   
+#weather-today, #weather-forecast, #map {
+    
     border: 2px solid var(--navy);
-    overflow: hidden;
+    
+    box-sizing: border-box;
 }
 
 
-
-#weather-today {
-    border: 2px solid var(--navy);
-
-}
 
 .wthrToday {
     display: grid;
@@ -302,6 +289,7 @@ form button, .mapBtn {
 
     & h4 {
         font-family: var(--body-font);
+        margin-top: 20px;
     }
 
     & h3 span {
@@ -316,10 +304,13 @@ form button, .mapBtn {
         
       
     }
+
+
     
     & .current-temp {
        
         font-size: 2rem;
+       
 
     }
 
@@ -351,6 +342,7 @@ form button, .mapBtn {
 
     }
 }
+
 
 
 /* individual divs in the 3-day forecast */

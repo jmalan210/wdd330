@@ -56,6 +56,7 @@ export default class {
 
         //3-day forecast
         const threeDayBox = document.getElementById("weather-forecast");
+        threeDayBox.innerHTML = "";
         const forecastHeader = document.createElement("h3");
         forecastHeader.textContent = "3-Day Forecast";
         threeDayBox.appendChild(forecastHeader);
