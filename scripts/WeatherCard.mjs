@@ -15,7 +15,7 @@ export default class {
         const endDate = new Date(today);
         endDate.setDate(today.getDate() + 3);
         const endDateStr = `${endDate.getFullYear()}-${String(endDate.getMonth() + 1).padStart(2, "0")}-${String(endDate.getDate()).padStart(2, "0")}`;
-      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset&current=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=auto&start_date=${startDate}&end_date=${endDateStr}`;
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset&current=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=auto&start_date=${startDate}&end_date=${endDateStr}`;
 
 
     const response = await fetch(url);
@@ -31,15 +31,14 @@ export default class {
         const formattedTime = time.toLocaleTimeString([], { hour: 'numeric', minute: 'numeric' })
         console.log(current.temperature_2m);
 
-        this.divElement.innerHTML = "";
+        this.divElement.querySelectorAll(".weather-current, .three-day-forecast").forEach(el => el.remove());
         // const card = document.createElement("div");
         // card.classList.add("weather-card");
 
         //current weather
-        const currentHTML = document.createElement("div");
-        currentHTML.classList.add("weather-current");
+        const currentBox = document.getElementById("weather-today");
 
-        currentHTML.innerHTML =
+        currentBox.innerHTML =
             `<div class="wthrToday">
             <h3>Today in <span>${cityName}</span></h3>
             <h4><strong>${formatDate(current.time)}</strong></h4>
@@ -53,16 +52,15 @@ export default class {
             </div>
             `;
         
-        this.divElement.appendChild(currentHTML);
+        // this.divElement.appendChild(currentBox);
 
         //3-day forecast
-        const forecastDiv = document.createElement("div")
-        forecastDiv.classList.add("three-day-forecast");
+        const threeDayBox = document.getElementById("weather-forecast");
         const forecastHeader = document.createElement("h3");
         forecastHeader.textContent = "3-Day Forecast";
-        forecastDiv.appendChild(forecastHeader);
+        threeDayBox.appendChild(forecastHeader);
 
-        for (let i = 0; i < daily.time.length; i++){
+        for (let i = 0; i < Math.min(3, daily.time.length); i++){
             const dateStr = daily.time[i];
             const[year, month, day] = dateStr.split("-").map(Number);
             const date = new Date(year, month - 1, day);
@@ -79,11 +77,11 @@ export default class {
             <p><strong>Sunset:</strong> ${new Date(daily.sunset[i]).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}</p>
             
             `;
-            forecastDiv.appendChild(dayForecast);
+            threeDayBox.appendChild(dayForecast);
 
         };
        
-        this.divElement.appendChild(forecastDiv);
+        // this.divElement.appendChild(threeDayBox);
     }
     
     async show(lat, lng, cityName = "") {
