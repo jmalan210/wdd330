@@ -270,6 +270,10 @@ form button, .mapBtn {
     box-sizing: border-box;
 }
 
+#weather-today:empty, #weather-forecast:empty, #map:empty {
+    display: none;
+}
+
 
 
 .wthrToday {
