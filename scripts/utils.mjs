@@ -102,8 +102,13 @@ export async function getWikiBirdPics(bird) {
             const pages = data.query?.pages;
             if (!pages) continue;
             const page = Object.values(pages)[0];
-            const imgUrl = page?.thumbnail?.source;
-            if (imgUrl) return imgUrl;
+            // const imgUrl = page?.thumbnail?.source;
+            // if (imgUrl) return imgUrl;
+
+            if (page?.thumbnail?.source) {
+                console.log("Found image:", page.thumbnail.source);
+                return page.thumbnail.source;
+            }
         
         } catch (err) {
             console.warn("Wikipedia fetch error:", name, err);
@@ -254,24 +259,6 @@ export function restoreFavButtons() {
     });
 }
 
-export function displayBirdLibrary(listElement) {
-    
-    const birds = JSON.parse(localStorage.getItem("seenBirds")) || [];
-    if (birds.length === 0) {
-        listElement.innerHTML = `No birds stored yet!`;
-    } else {
-        birds.forEach(b => {
-            const birdListItem = document.createElement("li");
-            birdListItem.innerHTML = `
-            <p><strong>Name:</strong> ${b.commonName}</p>
-           <p><strong>Scientific Name:</strong> ${b.scientificName}</p>
-           <p><strong>Date Recorded:</strong> ${b.dateRecorded}</p>
-        `
-            listElement.appendChild(birdListItem);
-        }
-        )
-    }
-}
 
 export function displayHotspotLibrary(listElement) {
    
@@ -281,6 +268,7 @@ export function displayHotspotLibrary(listElement) {
     } else {
         hotspots.forEach(h => {
             const hotspotListItem = document.createElement("li");
+            hotspotListItem.classList.add("favHotspotLi");
             hotspotListItem.innerHTML = `
             <p><strong>Name:</strong> ${h.locName}</p>
             <p><strong>ID:</strong> ${h.locId}</p>

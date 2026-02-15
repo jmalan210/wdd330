@@ -84,8 +84,8 @@ document.addEventListener("click", (e) => {
 
     const sighting = {
         speciesCode: species,
-        commonName: name,
-        scientificName: sci,
+        comName: name,
+        sciName: sci,
         dateRecorded: new Date().toISOString()
 
     };

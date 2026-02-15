@@ -658,6 +658,25 @@ form button, .mapBtn {
     fill: var(--orange);
 }
 
+/*Library*/
+
+#user-libs {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: flex-start;
+}
+
+
+#birds-seen, #fav-hot-spots {
+    font-size: 2.5rem;
+}
+
+.seenBirdLi, .favHotspotLi {
+    list-style-type:none;
+    padding: 10px;
+}
+
 /* Footer */
 
 .footer {
