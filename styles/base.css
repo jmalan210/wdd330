@@ -671,10 +671,11 @@ form button, .mapBtn {
 #bird-library, #fav-spots {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     justify-content: center;
+    gap: 10px;
+    width: 100%;
     padding: 0;
-    margin: 0 auto;
+    margin: 0;
 
 }
 
@@ -697,6 +698,7 @@ form button, .mapBtn {
     margin: 10px;
     box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
     max-width: 300px;
+    flex: 1 1 250px;
 }
 
 
@@ -778,7 +780,17 @@ form button, .mapBtn {
     box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
 }
 
+.library-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .library-section summary {
+    display: block;
+    width: 100%;
+    margin: 10px;
     font-size: 2rem;
     font-family: var(--heading-font);
     text-align: center;
@@ -790,6 +802,8 @@ form button, .mapBtn {
     border-bottom: 5px solid var(--orange);
     list-style: none;
 }
+
+
 
 .library-section summary::-webkit-details-marker {
     display: none;
