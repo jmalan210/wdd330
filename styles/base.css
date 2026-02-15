@@ -662,7 +662,6 @@ form button, .mapBtn {
 
 #user-libs {
     display: flex;
-    flex-direction: column;
     justify-content:space-around;
     align-items: flex-start;
 }
@@ -677,7 +676,7 @@ form button, .mapBtn {
     padding: 10px;
 }
 
-.seenBirdLi{
+.seenBirdLi, .favHotspotLi{
     position: relative;
     display: flex;
     flex-direction: column;
@@ -688,7 +687,7 @@ form button, .mapBtn {
     margin: 10px;
 }
 
-.seenBirdLi h4 {
+.seenBirdLi h4, .favHotspotLi h4 {
     background-color: var(--navy);
     color: white;
     border-bottom: 5px solid var(--orange);
@@ -696,6 +695,7 @@ form button, .mapBtn {
     margin: 0;
     text-align: center;
     font-size: 1.1rem;
+    
 }
 
 .seenBirdLi img {
@@ -709,7 +709,7 @@ form button, .mapBtn {
     margin: 10px;
 }
 
-.remove-bird {
+.remove-bird, .remove-hotspot{
     position: absolute;
     left: 5px;
     top: 3px;
@@ -737,6 +737,10 @@ form button, .mapBtn {
 .seenBirdLi.removing {
     transform: translate(-200px);
     opacity: 0;
+}
+
+.favHotspotLi {
+    position: relative;;
 }
 
 /* Footer */

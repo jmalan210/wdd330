@@ -34,7 +34,7 @@ export default class HotspotLibrary {
 
             hotspotListItem.innerHTML = `
             <button class="remove-hotspot" data-id=${h.locId}>X</button>
-            <p><strong>Name:</strong> ${h.locName}</p>
+            <h4><strong>${h.locName}</strong></h4>
             <p><strong>Lat:</strong> ${h.lat}</p>
             <p><strong>Lng:</strong> ${h.lng}</p>
             <button class="mapBtn"
