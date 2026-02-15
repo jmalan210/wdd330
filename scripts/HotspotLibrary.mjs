@@ -1,9 +1,11 @@
-import { formatDate } from "./utils.mjs";
+import { formatDate, createMapModal, openGoogleMapModal } from "./utils.mjs";
 export default class HotspotLibrary {
 
     constructor(listElement) {
         this.listElement = listElement;
         this.hotspots = JSON.parse(localStorage.getItem("favHotSpots")) || [];
+
+        createMapModal();
 
         this.listElement.addEventListener("click", e => {
             if (e.target.classList.contains("remove-hotspot")) {
@@ -34,7 +36,14 @@ export default class HotspotLibrary {
             <button class="remove-hotspot" data-id=${h.locId}>X</button>
             <p><strong>Name:</strong> ${h.locName}</p>
             <p><strong>Lat:</strong> ${h.lat}</p>
-            <p><strong>Lng:</strong>${h.lng}</p>
+            <p><strong>Lng:</strong> ${h.lng}</p>
+            <button class="mapBtn"
+                data-lat="${h.lat}"
+                data-lng="${h.lng}"
+                data-name="${h.locName}">
+                See on a map
+                </button>
+            <p><strong>Notes:</strong></p>
             <ul id="notes-${h.locId}">${existingNotes}</ul>
             <textarea id="note-${h.locId}" class="note-text-area" placeholder="enter notes about this sighting"></textarea>
              <button id="save-${h.locId}" class="save-note">Save Note</button>
@@ -43,7 +52,13 @@ export default class HotspotLibrary {
 
             hotspotListItem.querySelector(`#save-${h.locId}`).addEventListener("click", () => {
                 this.saveNoteForHotspot(h.locId);
+
+              
             });
+             hotspotListItem.querySelector(`.mapBtn`).addEventListener("click", (e) => {
+                 const { lat, lng, name } = e.target.dataset;
+                 openGoogleMapModal(lat, lng, name);
+            } )
 
             const notesList = hotspotListItem.querySelector(`#notes-${h.locId}`);
             notesList.addEventListener("click", e => {
