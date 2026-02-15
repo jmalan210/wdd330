@@ -662,10 +662,10 @@ form button, .mapBtn {
 
 #user-libs {
     display: flex;
-    justify-content:space-around;
-    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+   
 }
-
 
 #birds-seen, #fav-hot-spots {
     font-size: 2.5rem;
@@ -684,6 +684,7 @@ form button, .mapBtn {
     padding: 0;
     margin: 10px;
     box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+    max-width: 300px;
 }
 
 
@@ -700,7 +701,7 @@ form button, .mapBtn {
     gap: 8px;
 }
 
-.remove-bird, .remove-hotspot {
+.remove-bird, .remove-hotspot, .delete-note{
    justify-self: start;
     width: fit-content;
     padding: 0.125rem 0.25rem;
@@ -708,6 +709,8 @@ form button, .mapBtn {
     border: none;
     color: white;
     font-weight: bolder;
+    max-height: 25px;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
 
 }
 
@@ -725,7 +728,11 @@ form button, .mapBtn {
     padding: 3px;
 }
 
-.seenBirdLi.removing {
+.attached-note {
+    list-style-type: none;
+}
+
+.seenBirdLi.removing, .favHotspotLi.removing {
     transform: translate(-200px);
     opacity: 0;
 }

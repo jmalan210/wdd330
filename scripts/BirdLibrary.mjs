@@ -31,7 +31,7 @@ export default class BirdLibrary {
                 const existingNotes = b.notes
                     ? b.notes
                         .map((note, index) =>
-                            `<li data-note-index="${index}">
+                            `<li class="attached-note" data-note-index="${index}">
                             <strong>${formatDate(new Date(note.date))}: </strong> ${note.text}: 
                             <button class="delete-note">X</button></li>`).join("") : "";
             
