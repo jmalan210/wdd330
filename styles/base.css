@@ -677,6 +677,47 @@ form button, .mapBtn {
     padding: 10px;
 }
 
+.seenBirdLi{
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    border: 2px solid var(--navy);
+    gap: 8px;
+    margin: 10px;
+}
+
+.seenBirdLi img {
+   margin: 0 auto;
+   border-radius: 15px;
+}
+
+.remove-bird {
+    width: fit-content;
+    padding: 0.25rem 0.5rem;
+    margin-left: auto;
+    background-color: var(--orange);
+    border: none;
+    color: white;
+    font-weight: bolder;
+
+}
+
+.save-note {
+    background-color: var(--navy);
+    color: white;
+    width: fit-content;
+    margin-left: auto;
+}
+
+.note-text-area {
+    height: 100px;
+}
+
+.seenBirdLi.removing {
+    transform: translate(-200px);
+    opacity: 0;
+}
+
 /* Footer */
 
 .footer {
