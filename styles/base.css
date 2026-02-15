@@ -667,8 +667,20 @@ form button, .mapBtn {
    
 }
 
+
+#bird-library, #fav-spots {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    margin: 0 auto;
+
+}
+
 #birds-seen, #fav-hot-spots {
     font-size: 2.5rem;
+    
 }
 
 
@@ -726,6 +738,9 @@ form button, .mapBtn {
 .note-text-area {
     height: 100px;
     padding: 3px;
+    border: 1px solid var(--navy);
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.1);
+
 }
 
 .attached-note {
@@ -761,6 +776,33 @@ form button, .mapBtn {
     padding: 5px 10px 5px 10px;
     border-radius: 15px;
     box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+}
+
+.library-section summary {
+    font-size: 2rem;
+    font-family: var(--heading-font);
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+    background-color: var(--navy);
+    color: white;
+    border-bottom: 5px solid var(--orange);
+    list-style: none;
+}
+
+.library-section summary::-webkit-details-marker {
+    display: none;
+}
+
+.library-section summary::after {
+    content: "▸";
+    float: right;
+    transition: transform 0.2s ease;
+}
+
+.library-section[open] summary::after {
+    transform: rotate(90deg);
 }
 
 

@@ -13,6 +13,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     await birdLibrary.render();
     await hotspotLibrary.render();
+
+    function libraryCollapse() {
+        const sections = document.querySelectorAll(".library-section");
+        const isMobile = window.innerWidth < 800;
+        sections.forEach(section => {
+            section.open = !isMobile;
+        });
+    }
+
+    libraryCollapse();
+    window.addEventListener("resize", libraryCollapse);
 })
 
 
