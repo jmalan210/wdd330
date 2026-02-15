@@ -229,12 +229,12 @@ export function removeSighting(speciesCode) {
     localStorage.setItem("seenBirds", JSON.stringify(filtered));
 }
 
-export function saveFavHotspot(locId, locName) {
+export function saveFavHotspot(locId, locName, lat, lng) {
     const key = "favHotSpots";
     const stored = JSON.parse(localStorage.getItem(key)) || [];
     if (!stored.some(h => h.locId === locId)) {
 
-        stored.push({ locId, locName });
+        stored.push({ locId, locName, lat, lng });
     localStorage.setItem(key, JSON.stringify(stored));
     }
    
@@ -260,20 +260,3 @@ export function restoreFavButtons() {
 }
 
 
-export function displayHotspotLibrary(listElement) {
-   
-    const hotspots = JSON.parse(localStorage.getItem("favHotSpots")) || [];
-    if (hotspots.length === 0) {
-        listElement.innerHTML = `No hotspots stored yet!`;
-    } else {
-        hotspots.forEach(h => {
-            const hotspotListItem = document.createElement("li");
-            hotspotListItem.classList.add("favHotspotLi");
-            hotspotListItem.innerHTML = `
-            <p><strong>Name:</strong> ${h.locName}</p>
-            <p><strong>ID:</strong> ${h.locId}</p>
-        `
-            listElement.appendChild(hotspotListItem);
-        })
-    }
-}

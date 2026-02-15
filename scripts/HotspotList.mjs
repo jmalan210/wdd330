@@ -47,10 +47,7 @@ export default class HotspotList {
                 <p><strong>All Time Highest Number of Checklists:</strong> ${hotspot.numChecklistsAllTime}</p>
                 <p><strong>All Time Highest Number of Species:</strong> ${hotspot.numSpeciesAllTime}</p>
                 <p><strong>Latitude:</strong> ${hotspot.lat}</p>
-                <p><strong>Longitude:</strong> ${hotspot.lng}</p>
-                <p><strong>Country Code:</strong> ${hotspot.countryCode}</p>
-                <p><strong>Subnational Code 1:</strong> ${hotspot.subnational1Code}</p>
-                <p><strong>Subnational Code 2:</strong> ${hotspot.subnational2Code}</p>
+                <p><strong>Longitude:</strong> ${hotspot.lng}</p>    
                 <button class="mapBtn"
                 data-lat="${hotspot.lat}"
                 data-lng="${hotspot.lng}"
@@ -60,6 +57,8 @@ export default class HotspotList {
                 <button class="fav-btn"
                 data-locid="${hotspot.locId}"
                 data-name="${hotspot.locName}"
+                data-lat="${hotspot.lat}"
+                data-lng="${hotspot.lng}"
                 aria-label="Favorite this hotspot">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="heart-icon">
                 <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 

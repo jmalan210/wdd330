@@ -1,9 +1,6 @@
 import BirdLibrary from "./BirdLibrary.mjs";
-import { displayHotspotLibrary, loadHeaderFooter } from "./utils.mjs";
-
-
-const favSpotsLink = document.getElementById("fav-hot-spots");
-const HotspotLib = document.getElementById("fav-spots");
+import HotspotLibrary from "./HotspotLibrary.mjs"
+import { loadHeaderFooter } from "./utils.mjs";
 
 
 
@@ -11,11 +8,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     loadHeaderFooter();
     const birdLib = document.getElementById("bird-library");
     const birdLibrary = new BirdLibrary(birdLib);
-    const HotspotLib = document.getElementById("fav-spots");
-    HotspotLib.innerHTML = ``;
-    displayHotspotLibrary(HotspotLib);
+    const hotspotLib = document.getElementById("fav-spots");
+    const hotspotLibrary = new HotspotLibrary(hotspotLib);
 
     await birdLibrary.render();
+    await hotspotLibrary.render();
 })
 
 

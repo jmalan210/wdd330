@@ -105,11 +105,13 @@ document.addEventListener("click", (e) => {
 
     const locId = btn.dataset.locid;
     const locName = btn.dataset.name;
+    const lat = btn.dataset.lat;
+    const lng = btn.dataset.lng
 
     btn.classList.toggle("favorited");
 
     if (btn.classList.contains("favorited")) {
-        saveFavHotspot(locId, locName);
+        saveFavHotspot(locId, locName, lat, lng);
     } else {
         removeFavHotspot(locId);
    
