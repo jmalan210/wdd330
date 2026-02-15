@@ -1,3 +1,4 @@
+import { formatDate } from "./utils.mjs";
 export default class HotspotLibrary {
 
     constructor(listElement) {
@@ -6,7 +7,7 @@ export default class HotspotLibrary {
 
         this.listElement.addEventListener("click", e => {
             if (e.target.classList.contains("remove-hotspot")) {
-                this.removeHotspotFromLibrary(e.target.dataset.code);
+                this.removeHotspotFromLibrary(e.target.dataset.id);
             }
         })
 
@@ -41,7 +42,7 @@ export default class HotspotLibrary {
             this.listElement.appendChild(hotspotListItem);
 
             hotspotListItem.querySelector(`#save-${h.locId}`).addEventListener("click", () => {
-                this.saveNoteForBird(h.locId);
+                this.saveNoteForHotspot(h.locId);
             });
 
             const notesList = hotspotListItem.querySelector(`#notes-${h.locId}`);
@@ -60,7 +61,7 @@ export default class HotspotLibrary {
         const li = this.listElement.querySelector(`.remove-hotspot[data-id=${locId}]`).closest("li");
         li.classList.add("removing");
         setTimeout(() => {
-            this.hotspots = this.hotspots.filter(h => h.locId !== locId);
+            this.hotspots = this.hotspots.filter(h => h.locId !== String(locId));
             this.updateLocalStorage();
             li.remove();
         }, 500);
