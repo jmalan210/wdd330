@@ -37,14 +37,16 @@ export default class BirdLibrary {
             
             birdListItem.innerHTML = `
                         <button class="remove-bird" data-code=${b.speciesCode}>X</button>
+                        <h4><strong>${b.comName}</strong></h4>
                         <img src="${birdImg}" alt="${b.comName}" width="150">
-                        <p><strong>Name:</strong> ${b.comName}</p>
+                        <div class="bird-lib-info">
                        <p><strong>Scientific Name:</strong><em> ${b.sciName}</em></p>
                        <p><strong>Date Recorded:</strong> ${formatDate(b.dateRecorded)}</p>
                        <p><strong>Notes:</strong></p>
                        <ul id="notes-${b.speciesCode}">${existingNotes}</ul>
                        <textarea id="note-${b.speciesCode}" class="note-text-area" placeholder="enter notes about this sighting"></textarea>
                        <button id="save-${b.speciesCode}" class="save-note">Save Note</button>
+                       </div>
                        
                     `
                     this.listElement.appendChild(birdListItem);

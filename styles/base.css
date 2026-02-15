@@ -678,12 +678,24 @@ form button, .mapBtn {
 }
 
 .seenBirdLi{
+    position: relative;
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, opacity 0.3s ease;
     border: 2px solid var(--navy);
     gap: 8px;
+    padding: 0;
     margin: 10px;
+}
+
+.seenBirdLi h4 {
+    background-color: var(--navy);
+    color: white;
+    border-bottom: 5px solid var(--orange);
+    padding: 5px;
+    margin: 0;
+    text-align: center;
+    font-size: 1.1rem;
 }
 
 .seenBirdLi img {
@@ -691,10 +703,18 @@ form button, .mapBtn {
    border-radius: 15px;
 }
 
+.bird-lib-info {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
 .remove-bird {
+    position: absolute;
+    left: 5px;
+    top: 3px;
     width: fit-content;
-    padding: 0.25rem 0.5rem;
-    margin-left: auto;
+    padding: 0.125rem 0.25rem;
     background-color: var(--orange);
     border: none;
     color: white;
@@ -707,6 +727,7 @@ form button, .mapBtn {
     color: white;
     width: fit-content;
     margin-left: auto;
+    margin-top: 10px;
 }
 
 .note-text-area {
