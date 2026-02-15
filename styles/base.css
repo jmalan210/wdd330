@@ -671,12 +671,10 @@ form button, .mapBtn {
     font-size: 2.5rem;
 }
 
+
 .seenBirdLi, .favHotspotLi {
     list-style-type:none;
     padding: 10px;
-}
-
-.seenBirdLi, .favHotspotLi{
     position: relative;
     display: flex;
     flex-direction: column;
@@ -685,34 +683,25 @@ form button, .mapBtn {
     gap: 8px;
     padding: 0;
     margin: 10px;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
 }
 
-.seenBirdLi h4, .favHotspotLi h4 {
-    background-color: var(--navy);
-    color: white;
-    border-bottom: 5px solid var(--orange);
-    padding: 5px;
-    margin: 0;
-    text-align: center;
-    font-size: 1.1rem;
-    
-}
 
 .seenBirdLi img {
    margin: 0 auto;
    border-radius: 15px;
+   box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
 }
 
-.bird-lib-info {
+.bird-lib-info, .hotspot-details {
     display: flex;
     flex-direction: column;
     margin: 10px;
+    gap: 8px;
 }
 
-.remove-bird, .remove-hotspot{
-    position: absolute;
-    left: 5px;
-    top: 3px;
+.remove-bird, .remove-hotspot {
+   justify-self: start;
     width: fit-content;
     padding: 0.125rem 0.25rem;
     background-color: var(--orange);
@@ -728,10 +717,12 @@ form button, .mapBtn {
     width: fit-content;
     margin-left: auto;
     margin-top: 10px;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
 }
 
 .note-text-area {
     height: 100px;
+    padding: 3px;
 }
 
 .seenBirdLi.removing {
@@ -739,9 +730,32 @@ form button, .mapBtn {
     opacity: 0;
 }
 
-.favHotspotLi {
-    position: relative;;
+
+.card-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    background-color: var(--navy);
+    color: white;
+    border-bottom: solid 5px var(--orange);
+    
 }
+
+.card-header h4 {
+    padding: 5px;
+    text-align: center;
+}
+
+.map-button {
+    border: none;
+    background-color: var(--orange);
+    color: white;
+    width: fit-content;
+    align-self: center;
+    padding: 5px 10px 5px 10px;
+    border-radius: 15px;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+}
+
 
 /* Footer */
 

@@ -33,11 +33,15 @@ export default class HotspotLibrary {
                 <button class = "delete-note">X</button></li>`).join("") : "";
 
             hotspotListItem.innerHTML = `
+            <div class="card-header">
             <button class="remove-hotspot" data-id=${h.locId}>X</button>
-            <h4><strong>${h.locName}</strong></h4>
+            <h4>${h.locName}</h4>
+            <div></div>
+            </div>
+            <div class="hotspot-details">
             <p><strong>Lat:</strong> ${h.lat}</p>
             <p><strong>Lng:</strong> ${h.lng}</p>
-            <button class="mapBtn"
+            <button class="map-button"
                 data-lat="${h.lat}"
                 data-lng="${h.lng}"
                 data-name="${h.locName}">
@@ -45,8 +49,9 @@ export default class HotspotLibrary {
                 </button>
             <p><strong>Notes:</strong></p>
             <ul id="notes-${h.locId}">${existingNotes}</ul>
-            <textarea id="note-${h.locId}" class="note-text-area" placeholder="enter notes about this sighting"></textarea>
+            <textarea id="note-${h.locId}" class="note-text-area" placeholder="enter notes about this hotspot"></textarea>
              <button id="save-${h.locId}" class="save-note">Save Note</button>
+             </div>
         `
             this.listElement.appendChild(hotspotListItem);
 
@@ -55,7 +60,7 @@ export default class HotspotLibrary {
 
               
             });
-             hotspotListItem.querySelector(`.mapBtn`).addEventListener("click", (e) => {
+             hotspotListItem.querySelector(`.map-button`).addEventListener("click", (e) => {
                  const { lat, lng, name } = e.target.dataset;
                  openGoogleMapModal(lat, lng, name);
             } )

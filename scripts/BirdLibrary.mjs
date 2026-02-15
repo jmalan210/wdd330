@@ -36,10 +36,13 @@ export default class BirdLibrary {
                             <button class="delete-note">X</button></li>`).join("") : "";
             
             birdListItem.innerHTML = `
+                        <div class="card-header">
                         <button class="remove-bird" data-code=${b.speciesCode}>X</button>
                         <h4><strong>${b.comName}</strong></h4>
-                        <img src="${birdImg}" alt="${b.comName}" width="150">
+                        <div></div>
+                        </div>
                         <div class="bird-lib-info">
+                        <img src="${birdImg}" alt="${b.comName}" width="150">
                        <p><strong>Scientific Name:</strong><em> ${b.sciName}</em></p>
                        <p><strong>Date Recorded:</strong> ${formatDate(b.dateRecorded)}</p>
                        <p><strong>Notes:</strong></p>
