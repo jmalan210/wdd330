@@ -8,7 +8,8 @@
         gap: 1rem;
         padding: 0;
         width: auto;
-        background: var(--light-blue);
+        background: var(--navy);
+        color: white;
         width: auto;
         max-height: none;
         overflow: visible;
@@ -16,17 +17,12 @@
         transition: none;
     }
 
-    
+
 
     #ham-btn {
     display: none;
     
     }
-
-    
-
-    
-    
     #bodCard {
         position: relative;
         display: grid;

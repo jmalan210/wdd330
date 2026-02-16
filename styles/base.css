@@ -129,14 +129,32 @@ nav {
             font-weight: bold;
             font-size: 1.2rem;
             height: 100%;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
             .nav li a:hover {
-                background-color: var(--navy);
-                color: white;
-                height: 100%;
+                
+              background-color: var(--peach);
+              color: var(--navy) !important;
             }
 
+            .nav li a:visited {
+                color: white;
+            }
+
+    
+
+    .nav li a.active::before {
+        content: "";
+        display: inline-block;
+        margin-right: 5px;
+        width: 40px;
+        height: 40px;
+        background-image: url("/images/birdmarker.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        vertical-align: middle;
+    }
         
 .nav.show {
         max-height: 500px;

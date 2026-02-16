@@ -26,6 +26,14 @@ export async function loadHeaderFooter(){
     const year = document.querySelector("#current-year");
     year.textContent = new Date().getFullYear();
 
+    const links = header.querySelectorAll(".nav li a");
+    links.forEach(link => {
+        if (window.location.href.includes(link.getAttribute("href"))) {
+            link.classList.add('active');
+            console.log("Active link set:", link.href);
+        }
+    });
+
 }
 
 export function initHamburgerMenu() {
@@ -46,12 +54,7 @@ export function initHamburgerMenu() {
 
     });
 
-    window.addEventListener("resize", () => {
-        if (window.innerWidth >= 1000) {
-            nav.classList.remove("show");
-            
-        }
-    })
+   
 }
 
 export async function getCoordinates(location) {
