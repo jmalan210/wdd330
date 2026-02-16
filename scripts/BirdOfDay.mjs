@@ -54,7 +54,7 @@ export default class BirdOfDay {
       <p>
       <a href="https://ebird.org/species/${bird.speciesCode}" target="blank" class="bird-link">
         <img src="images/binoculars.svg" width=50 class="binocs">
-            <span>Learn More about<br>${bird.comName}</span>
+            <span>Learn More</span>
         </a>
         </p>
                 </div></div>

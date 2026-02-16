@@ -258,9 +258,14 @@ nav {
 }
 
 .bird-link span {
-    color: var(--orange);
+    color: var(--navy);
     font-weight: bold;
     font-size: .9rem;
+}
+
+.bird-link span:hover {
+    color: #b43f08;
+    transform: scale(1.1);
 }
 
 .bodNote {
@@ -320,7 +325,8 @@ form label {
     display: flex;
     justify-content: flex-start;
     text-align: left;
-    font-size: 1.1rem;
+    font-size: clamp(.8rem, 1.1rem, 1.1rem);
+    padding: 5px;
     
 }
 
@@ -332,21 +338,24 @@ form input[type="radio"] {
     transform: scale(1.5);
     cursor: pointer;
     margin-right: 0.5rem;
+    
 }
 
 form button {
     background-color: var(--orange);
     color: white;
     border: none;
-    width: 20%;
+    width: clamp(120px, 20%, 300px);
     display: inline-block;
     align-self: center;
     justify-content: baseline;
-    padding: 10px;
+    padding: clamp(8px, 1vw, 16px);
     border-radius: 20px;
     margin-top: 5px;
     font-weight: bolder;
-    font-size: 1.2rem;
+    font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+    min-height: 44px;
+    min-width: 120px;
 
 }
 
