@@ -1020,6 +1020,10 @@ form button {
 .footer {
     text-align: center;
     margin-top: 10px;
-    background-color: var(--navy);
-    color: white;
+    
+    
+}
+
+.footer img {
+    padding: 10px;
 }
