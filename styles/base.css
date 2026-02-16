@@ -142,7 +142,7 @@ h2 {
     font-size: 2rem;
 }
 #ham-btn.show::before {
-    content: "X";
+    content: "x";
 }
 
 #ham-btn {
