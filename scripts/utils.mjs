@@ -144,7 +144,7 @@ export async function getWikiBirdPics(bird) {
         }
     }
 
-    return "/images/placeholder.svg";
+    return "../images/placeholder.svg";
 }
 
 export async function getWikiBirdData(query) {
