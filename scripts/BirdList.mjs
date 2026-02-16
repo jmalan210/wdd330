@@ -37,7 +37,7 @@ export default class BirdList {
     async renderBirds(birds) {
         const birdsHTML = await Promise.all(birds.map(async bird => {
             const imgUrl = await getWikiBirdPics(bird);
-            console.log(imgUrl);
+            // console.log(imgUrl);
             const privLoc = bird.locationPrivate ? "Yes" : "No";
             return (
                 `<li class="bird">

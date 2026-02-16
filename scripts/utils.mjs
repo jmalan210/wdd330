@@ -30,7 +30,7 @@ export async function loadHeaderFooter(){
     links.forEach(link => {
         if (window.location.href.includes(link.getAttribute("href"))) {
             link.classList.add('active');
-            console.log("Active link set:", link.href);
+            // console.log("Active link set:", link.href);
         }
     });
 
@@ -93,7 +93,7 @@ export async function getBirdData(url) {
         
     }
     const birds = await response.json();
-    console.log(birds)
+    // console.log(birds)
     return birds
 };
 
@@ -108,7 +108,7 @@ export async function getHotspotData(url) {
         
     }
     const hotspots = await response.json();
-    console.log(hotspots);
+    // console.log(hotspots);
     return hotspots;
 }
     
@@ -135,7 +135,7 @@ export async function getWikiBirdPics(bird) {
             // if (imgUrl) return imgUrl;
 
             if (page?.thumbnail?.source) {
-                console.log("Found image:", page.thumbnail.source);
+                // console.log("Found image:", page.thumbnail.source);
                 return page.thumbnail.source;
             }
         
@@ -238,7 +238,7 @@ export function saveSighting(bird) {
     if (stored.some(b => b.speciesCode === bird.speciesCode)) return;
     stored.push(bird);
     localStorage.setItem(key, JSON.stringify(stored));
-    console.log("Saved:", bird);
+    // console.log("Saved:", bird);
 }
 
 export function restoreSeenButtons() {
@@ -267,7 +267,7 @@ export function saveFavHotspot(locId, locName, lat, lng) {
     localStorage.setItem(key, JSON.stringify(stored));
     }
    
-    console.log("Saved:", stored);
+    // console.log("Saved:", stored);
 }
 
 export function removeFavHotspot(locId) {
@@ -275,7 +275,7 @@ export function removeFavHotspot(locId) {
     const stored = JSON.parse(localStorage.getItem(key)) || [];
     const filtered = stored.filter(h => h.locId !== locId);
     localStorage.setItem(key, JSON.stringify(filtered));
-    console.log("removed, new list:", filtered);
+    // console.log("removed, new list:", filtered);
 }
 
 export function restoreFavButtons() {

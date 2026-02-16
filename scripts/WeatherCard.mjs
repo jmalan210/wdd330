@@ -20,7 +20,7 @@ export default class {
 
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     return data;
     }
     
@@ -29,7 +29,7 @@ export default class {
         const daily = weatherData.daily;
         const time = new Date(current.time);
         const formattedTime = time.toLocaleTimeString([], { hour: 'numeric', minute: 'numeric' })
-        console.log(current.temperature_2m);
+        // console.log(current.temperature_2m);
 
         this.divElement.querySelectorAll(".weather-current, .three-day-forecast").forEach(el => el.remove());
         // const card = document.createElement("div");
