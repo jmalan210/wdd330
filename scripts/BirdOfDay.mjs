@@ -38,9 +38,10 @@ export default class BirdOfDay {
          `
         <h3>Bird of the Day</h3>
         <div id="bodCard">
+        <h4>${bird.comName}</h4>
         <img src="${imgUrl}" alt="${bird.comName}" id="bodImg">
         <div id="birdInfo">
-        <h4>${bird.comName}</h4>
+        
         <p>${truncatedBlurb}</p>
         <p><strong>Scientific Name:</strong> <em>${bird.sciName}</em></p>
         <p><strong>Date Observed:</strong> ${formatDate(bird.obsDt)}</p>

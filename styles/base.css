@@ -121,14 +121,12 @@ h2 {
 /* Index Page */
 
 #bodCard {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    justify-self: center;
-    border: 2px solid var(--orange);
-    border-radius: 20px;
-    padding: 10px;
-    margin: 10px;
+   display: flex;
+   flex-direction: column;
+   justify-self: center;
+   border: 2px solid var(--navy);
+   width: fit-content;
+   max-width: 70%;
 }
 
 #birdOfDay h3 {
@@ -140,20 +138,25 @@ h2 {
     
 }
 #bodImg {
-    text-align: center;
-    width: 90%;
+   
+    align-self: center;
+    justify-self: center;
+    max-width: 200px;
     margin:20px;
     border-radius: 20px;
-
-   
 }
 
 #birdInfo {
-    font-size: 1.5rem;
+    font-size: 1rem;
+    padding: 10px;
 }
 
-#birdInfo h4 {
-    font-size: 3rem;
+#bodCard h4 {
+    grid-column: 1/4;
+    background-color: var(--navy);
+    border-bottom: solid 5px var(--light-blue);
+    color: white;
+    font-size: 2rem;
     text-align: center;
 }
 
@@ -468,10 +471,10 @@ form button {
 
 
 .flip-card-front h4 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: center;
     background-color:var(--navy);
-    border-bottom: 5px solid var(--orange);
+    border-bottom: 5px solid var(--light-blue);
     color: white;
     margin: 0;
     padding: 5px;
@@ -611,10 +614,10 @@ form button {
 }
 
 .hotspot h4 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: center;
     background-color:var(--navy);
-    border-bottom: 5px solid var(--orange);
+    border-bottom: 5px solid var(--light-blue);
     color: white;
     margin: 0;
 
@@ -711,6 +714,7 @@ form button {
 }
 
 /*Library*/
+
 
 #user-libs {
     display: flex;
@@ -812,7 +816,8 @@ form button {
     grid-template-columns: auto 1fr auto;
     background-color: var(--navy);
     color: white;
-    border-bottom: solid 5px var(--orange);
+    border-bottom: solid 5px var(--light-blue);
+    font-size: 1.5rem;
     
 }
 
@@ -851,7 +856,7 @@ form button {
     padding: 10px;
     background-color: var(--navy);
     color: white;
-    border-bottom: 5px solid var(--orange);
+    border-bottom: 5px solid var(--light-blue);
     list-style: none;
 }
 
@@ -876,4 +881,7 @@ form button {
 
 .footer {
     text-align: center;
+    margin-top: 10px;
+    background-color: var(--navy);
+    color: white;
 }
