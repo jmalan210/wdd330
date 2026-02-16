@@ -26,6 +26,7 @@ export default class HotspotList {
             return true;
         });
 
+        hotspots = hotspots.sort(() => Math.random() - 0.5);
         hotspots = hotspots.slice(0, 10);
         this.hotspots = hotspots;
         const title = document.getElementById("list-title");
@@ -47,11 +48,13 @@ export default class HotspotList {
                 <p><strong>All Time Highest Number of Checklists:</strong> ${hotspot.numChecklistsAllTime}</p>
                 <p><strong>All Time Highest Number of Species:</strong> ${hotspot.numSpeciesAllTime}</p>
                 <p><strong>Latitude:</strong> ${hotspot.lat}</p>
-                <p><strong>Longitude:</strong> ${hotspot.lng}</p>    
+                <p><strong>Longitude:</strong> ${hotspot.lng}</p>
+                <div class="map-favorite">    
                 <button class="mapBtn"
                 data-lat="${hotspot.lat}"
                 data-lng="${hotspot.lng}"
-                data-name="${hotspot.locName}">
+                data-name="${hotspot.locName}"
+                aria-label="View ${hotspot.locName} on Google Maps">
                 See on a map
                 </button>
                 <button class="fav-btn"
@@ -66,6 +69,7 @@ export default class HotspotList {
                 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                 </svg>
                 </button>
+                </div>
                 </div>
                 </li>
                 `;

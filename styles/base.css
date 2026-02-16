@@ -240,14 +240,20 @@ form label {
     justify-content: flex-start;
     text-align: left;
     font-size: 1.1rem;
-    padding: 10px;
+    
 }
 
 form input {
     font-size: 1.5rem;
 }
 
-form button, .mapBtn {
+form input[type="radio"] {
+    transform: scale(1.5);
+    cursor: pointer;
+    margin-right: 0.5rem;
+}
+
+form button {
     background-color: var(--orange);
     color: white;
     border: none;
@@ -392,10 +398,15 @@ form button, .mapBtn {
 }
 
 #bird-list {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    
+    justify-content: center; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 20px;
+    justify-items: stretch;
+    padding: 0;
+    margin: 0 auto;
     
 }
 
@@ -584,6 +595,9 @@ form button, .mapBtn {
    /*Hotspot*/
 
 .hotspot {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     list-style-type: none;
     border: 2px solid var(--navy);
     width: 500px;
@@ -650,17 +664,26 @@ form button, .mapBtn {
     
 }
 
+.mapBtn {
+    background-color: var(--orange);
+    border: none;
+    color: white;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
 .fav-btn {
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 5px;
-    float: right;
+    
 }
 
 .fav-btn .heart-icon {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     stroke: var(--orange);
     fill: none;
     transition: fill 0.2s, stroke 0.2s;
@@ -668,6 +691,13 @@ form button, .mapBtn {
 
 .fav-btn.favorited .heart-icon {
     fill: var(--orange);
+}
+
+.map-favorite {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    margin-top: auto;
 }
 
 /*Library*/
