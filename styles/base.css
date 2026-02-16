@@ -124,9 +124,7 @@ nav {
     align-items: stretch;
     justify-content: center;
     background-color: var(--navy);
-    margin-top: 5px;
-
-    max-height: 0;
+    margin-top: 5px;    max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
 }
@@ -165,7 +163,7 @@ nav {
         margin-right: 5px;
         width: 40px;
         height: 40px;
-        background-image: url("../images/birdmarker.svg");
+        background-image: url("images/birdmarker.svg");
         background-size: contain;
         background-repeat: no-repeat;
         vertical-align: middle;
