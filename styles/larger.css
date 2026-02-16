@@ -1,14 +1,14 @@
 @media only screen and (min-width: 64rem){
 
     .nav {
-        transform: none !important;
+        /* transform: none !important; */
         position: static;
         display: flex;
         flex-direction: row;
         gap: 1rem;
-        padding: 1rem;
-    
-        width: 100vw;
+        padding: 0;
+        width: auto;
+        background: var(--light-blue);
     }
 
     #ham-btn {
