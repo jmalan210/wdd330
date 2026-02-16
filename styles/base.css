@@ -806,7 +806,7 @@ form button {
 
 
 
-svg.fav-btn  {
+.fav-btn {
     width: 30px;
     height: 30px;
     stroke: var(--orange);
@@ -815,7 +815,7 @@ svg.fav-btn  {
     transition: fill 0.2s, stroke 0.2s;
 }
 
-svg.fav-btn.favorited  {
+.fav-btn.favorited  {
     position: relative;
     fill: var(--orange);
     transform: scale(1.2);
