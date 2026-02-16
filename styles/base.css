@@ -49,14 +49,17 @@ body {
     position: relative;
     z-index: 1000;
     
+    
    
 }
 
 .logo-div {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     width: 100%;
+    margin-bottom: 20px;
 }
 
 .logo-div img {
@@ -71,6 +74,7 @@ h1 {
     padding: 0;
     margin: 0;
     font-weight: bolder;
+    text-align: center;
 
 
 }
@@ -81,7 +85,7 @@ h1 {
 
 h2 {
     font-style: oblique;
-    text-align: right;
+    text-align: center;
     font-size: clamp(1rem, 2vw, 1.5rem);
     margin: 0;
     padding: 0;

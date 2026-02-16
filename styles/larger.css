@@ -1,4 +1,7 @@
 @media only screen and (min-width: 64rem){
+    .logo-div {
+        flex-direction: row;
+    }
 
     .nav {
         /* transform: none !important; */
