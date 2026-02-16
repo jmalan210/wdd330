@@ -1,11 +1,12 @@
 import BirdLibrary from "./BirdLibrary.mjs";
 import HotspotLibrary from "./HotspotLibrary.mjs"
-import { loadHeaderFooter } from "./utils.mjs";
+import { loadHeaderFooter, initHamburgerMenu } from "./utils.mjs";
 
 
 
 document.addEventListener("DOMContentLoaded", async () => {
     loadHeaderFooter();
+    initHamburgerMenu();
     const birdLib = document.getElementById("bird-library");
     const birdLibrary = new BirdLibrary(birdLib);
     const hotspotLib = document.getElementById("fav-spots");

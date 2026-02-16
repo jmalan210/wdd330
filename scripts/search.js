@@ -1,4 +1,4 @@
-import { loadHeaderFooter, getCoordinates, getBirdData, getHotspotData, saveSighting, removeSighting, saveFavHotspot, removeFavHotspot } from "./utils.mjs";
+import { loadHeaderFooter, getCoordinates, getBirdData, getHotspotData, saveSighting, removeSighting, saveFavHotspot, removeFavHotspot, initHamburgerMenu } from "./utils.mjs";
 import BirdList from "./BirdList.mjs";
 // import BirdSearch from "./BirdSearch.mjs";
 import HotspotList from "./HotspotList.mjs";
@@ -6,6 +6,7 @@ import WeatherCard from "./WeatherCard.mjs";
 
 
 loadHeaderFooter();
+initHamburgerMenu();
 
 const locForm = document.getElementById("loc-form");
 const searchPageMap = document.getElementById("map");
