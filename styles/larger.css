@@ -3,13 +3,20 @@
     .nav {
         /* transform: none !important; */
         position: static;
-        display: flex;
+        display: flex !important;
         flex-direction: row;
         gap: 1rem;
         padding: 0;
         width: auto;
         background: var(--light-blue);
+        width: auto;
+        max-height: none;
+        overflow: visible;
+        opacity: 1;
+        transition: none;
     }
+
+    
 
     #ham-btn {
     display: none;
