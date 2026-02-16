@@ -33,11 +33,11 @@ export default class BirdLibrary {
                         .map((note, index) =>
                             `<li class="attached-note" data-note-index="${index}">
                             <strong>${formatDate(new Date(note.date))}: </strong> ${note.text}: 
-                            <button class="delete-note">X</button></li>`).join("") : "";
+                            <button class="delete-note">x</button></li>`).join("") : "";
             
             birdListItem.innerHTML = `
                         <div class="card-header">
-                        <button class="remove-bird" data-code=${b.speciesCode}>X</button>
+                        <button class="remove-bird" data-code=${b.speciesCode}>x</button>
                         <h4><strong>${b.comName}</strong></h4>
                         <div></div>
                         </div>

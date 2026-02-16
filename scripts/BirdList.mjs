@@ -17,7 +17,7 @@ export default class BirdList {
             speciesList.add(bird.speciesCode);
             return true;
         });
-        birds = birds.slice(0, 10);
+        birds = birds.slice(0, 12);
         this.birds = birds;
         const title = document.getElementById("list-title");
         const titles = { recent: "Recent Sightings", recentNotable: "Recent Notable Sightings" };

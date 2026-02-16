@@ -27,10 +27,10 @@ export default class HotspotList {
         });
 
         hotspots = hotspots.sort(() => Math.random() - 0.5);
-        hotspots = hotspots.slice(0, 10);
+        hotspots = hotspots.slice(0, 12);
         this.hotspots = hotspots;
         const title = document.getElementById("list-title");
-        title.innerHTML = `Hotspots for <span id="title-loc">${this.location}</span>`;
+        title.innerHTML = `Hotspots for <span id="title-loc">${this.location}</span> <span id="what-is"><a href="https://support.ebird.org/en/support/solutions/articles/48001280356#What-is-an-eBird-Hotspot?" target="blank">(What is a  hotspot?)</a></span>`;
         this.renderHotspots(this.hotspots);
 
         await this.renderHotspots(this.hotspots);
