@@ -384,6 +384,7 @@ form button {
     text-align: center;
     text-transform: capitalize;
     padding: 0;
+    margin-bottom: 10px;
 }
 
 #subtitle {
@@ -398,9 +399,9 @@ form button {
 }
 
 #bird-list {
-    /* display: flex;
+    display: flex;
     flex-wrap: wrap;
-    justify-content: center; */
+    justify-content: center;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     gap: 20px;
@@ -411,8 +412,10 @@ form button {
 }
 
 .bird {
+    justify-self: center;
    list-style: none;
-    width: 400px;
+   width: 100%;
+    max-width: 400px;
     height: auto;
     margin: 10px;
     perspective: 1000px;
@@ -597,11 +600,13 @@ form button {
 .hotspot {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-self: center;
     list-style-type: none;
     border: 2px solid var(--navy);
-    width: 500px;
-    margin: 10px;
+    width: 100%;
+    max-width: 400px;
+    flex-grow: 1;
+    
     
 }
 
@@ -616,6 +621,9 @@ form button {
 }
 
 .hotspot-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
     padding: 10px;
 }
 
@@ -690,14 +698,16 @@ form button {
 }
 
 .fav-btn.favorited .heart-icon {
+    position: relative;
+    bottom: 5px;
     fill: var(--orange);
 }
 
 .map-favorite {
-    display: flex;
-    gap: 10px;
-    justify-content: space-between;
-    margin-top: auto;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
 }
 
 /*Library*/
