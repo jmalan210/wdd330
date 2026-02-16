@@ -884,7 +884,7 @@ form button {
     gap: 8px;
 }
 
-.remove-bird, .remove-hotspot, .delete-note{
+.remove-bird, .remove-hotspot{
     display: flex;
     align-items: center;
     width: fit-content;
@@ -902,6 +902,12 @@ form button {
     box-shadow: 4px 4px 10px rgba(124, 122, 122, 0.3);
     
 
+}
+
+.delete-note{
+    border:none;
+    background: none;
+    font-size: 1.5rem;
 }
 
 .save-note {

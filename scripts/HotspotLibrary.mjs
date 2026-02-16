@@ -28,9 +28,10 @@ export default class HotspotLibrary {
             const existingNotes = h.notes
                 ? h.notes
                     .map((note, index) =>
-                        `<li class="attached-note" data-note-index="${index}">
-                <strong>${formatDate(new Date(note.date))}: </strong> ${note.text}
-                <button class = "delete-note">X</button></li>`).join("") : "";
+                        ` <li class="attached-note" data-note-index="${index}">
+                            <button class="delete-note">x</button>
+                            <p><strong>${formatDate(new Date(note.date))}: </strong> ${note.text}</p>
+                            </li>`).join("") : "";
 
             hotspotListItem.innerHTML = `
             <div class="card-header">
