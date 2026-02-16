@@ -37,6 +37,7 @@ body {
 
 .header {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
@@ -44,6 +45,8 @@ body {
     width: 100%;
     padding-top: 2vw 1 rem;
     box-sizing: border-box;
+    position: relative;
+    z-index: 1000;
     
     & div {
         
@@ -51,6 +54,11 @@ body {
         padding: 0;
         margin: 0;
     }
+}
+
+.logo-div {
+    display: flex;
+    align-items: center;
 }
 
 .header img {
@@ -84,9 +92,16 @@ h2 {
 
 /* Navigation */
 
+
+
 .nav {
-    display: flex;
-    flex-direction: row;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 1000;
+    flex-direction: column;
+    transform: translateX(-100vw);
+    transition:  transform 0.3s ease;
     align-items: stretch;
     justify-content: center;
     background-color: #8fafc180;
@@ -117,6 +132,36 @@ h2 {
     }
 
 }
+
+.nav.show {
+        transform: translateX(0);
+    }
+
+#ham-btn::before {
+    content: "\2630";
+    font-size: 2rem;
+}
+#ham-btn.show::before {
+    content: "X";
+}
+
+#ham-btn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1100;
+    background: none;
+    color: var(--navy);
+    border: none;
+    cursor: pointer;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-right: 1rem;
+    
+
+}
+
 
 /* Index Page */
 

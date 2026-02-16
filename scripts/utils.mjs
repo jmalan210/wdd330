@@ -28,6 +28,32 @@ export async function loadHeaderFooter(){
 
 }
 
+export function initHamburgerMenu() {
+    const header = document.querySelector('.header');
+    if (!header) {
+        setTimeout(initHamburgerMenu, 100);
+        return;
+    }
+
+    const hamburger = header.querySelector("#ham-btn");
+    const nav = header.querySelector(".nav")
+
+    if (!hamburger || !nav) return;
+
+    hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("show");
+        nav.classList.toggle("show");
+
+    });
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth >= 1024) {
+            nav.classList.remove("show");
+            
+        }
+    })
+}
+
 export async function getCoordinates(location) {
     const response = await fetch(`https://us1.locationiq.com/v1/search?key=${LOCATIONIQ_API_KEY}&q=${encodeURIComponent(location)}&format=json&`);
     const data = await response.json();

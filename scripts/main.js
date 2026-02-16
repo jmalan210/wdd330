@@ -1,9 +1,10 @@
 import BirdOfDay from "./BirdOfDay.mjs";
-import { loadHeaderFooter } from "./utils.mjs";
+import { loadHeaderFooter, initHamburgerMenu } from "./utils.mjs";
 
 document.addEventListener("DOMContentLoaded", async () => {
     loadHeaderFooter();
     await loadBirdOfTheDay();
+    initHamburgerMenu();
 })
 
 
