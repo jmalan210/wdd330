@@ -163,7 +163,7 @@ nav {
         margin-right: 5px;
         width: 40px;
         height: 40px;
-        background-image: url("images/birdmarker.svg");
+        background-image: url("../images/birdmarker.svg");
         background-size: contain;
         background-repeat: no-repeat;
         vertical-align: middle;
