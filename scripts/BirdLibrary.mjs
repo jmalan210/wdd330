@@ -129,8 +129,9 @@ export default class BirdLibrary {
             notesList.innerHTML = "";
             bird.notes.forEach((note, index) => {
                 const li = document.createElement("li");
+                li.classList.add("attached-note");
                 li.dataset.noteIndex = index;
-                li.innerHTML = `<strong>${formatDate(new Date(note.date))}:</strong> ${note.text} <button class="delete-note">X</button>`;
+                li.innerHTML = `<button class="delete-note">x</button><p><strong>${formatDate(new Date(note.date))}:</strong> ${note.text}</p>`;
                 notesList.appendChild(li);
             })
             
