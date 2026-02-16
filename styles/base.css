@@ -20,12 +20,23 @@ ul, ol {
     list-style-type: none;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     font-family: var(--body-font);
     color: var(--navy);
     
 }
 
+main {
+    flex: 1;
+}
 
 
  h2, h3, h4, h5, h6 {
@@ -1018,12 +1029,19 @@ form button {
 /* Footer */
 
 .footer {
+    
     text-align: center;
     margin-top: 10px;
     
     
 }
 
+.footer p {
+    background-color: var(--navy);
+    color: white;
+    padding: 5px;
+}
+
 .footer img {
-    padding: 10px;
+    margin: 10px;
 }
