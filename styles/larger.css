@@ -131,9 +131,12 @@ fieldset {
     
 }
 
-.seenBirdLi, .favHotspotLi {
-
+.seenBirdLi{
 animation: slidedown 1s ease-out forwards;
+}
+
+.favHotspotLi {
+    animation: slidedown 1s ease-out forwards;
 }
 
 }
