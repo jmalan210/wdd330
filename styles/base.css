@@ -160,7 +160,7 @@ nav {
 
     .nav li a.active::before {
         content: "";
-        display: inline-block;
+        display: inline-flex;
         margin-right: 5px;
         width: 40px;
         height: 40px;
