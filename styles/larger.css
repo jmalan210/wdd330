@@ -74,6 +74,21 @@ fieldset {
         flex-direction: row;
         align-items: stretch;
        gap: 8px;
+       animation: slidedown 3s ease-out forwards;
+       
+ }
+        @keyframes slidedown {
+        from {
+            transform: translateY(-50px);
+            opacity: 0;
+        }
+        
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+       
     }
    
     #weather-today, #weather-forecast, #map {
@@ -99,4 +114,4 @@ fieldset {
 
     
 }
-}
+

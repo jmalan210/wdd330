@@ -164,7 +164,7 @@ nav {
         margin-right: 5px;
         width: 40px;
         height: 40px;
-        background-image: url("/wdd330/images/birdmarker.svg");
+        background-image: url("/wdd330/images/birdmarker.svg"); /*only works on live site, not local, because of directory issues with github repo*/
         background-size: contain;
         background-repeat: no-repeat;
         vertical-align: middle;
@@ -216,6 +216,7 @@ nav {
    border: 2px solid var(--navy);
    width: fit-content;
    max-width: 70%;
+   box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
 }
 
 #birdOfDay h3 {
@@ -233,6 +234,7 @@ nav {
     max-width: 200px;
     margin:20px;
     border-radius: 20px;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
 }
 
 #birdInfo {
